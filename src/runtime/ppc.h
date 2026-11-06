@@ -34,9 +34,16 @@ static inline uint32_t xl(uint32_t a) {
     if ((a & 0xE0000000u) == 0xC0000000u) return a - 0x40000000u;
     return a;
 }
-static inline uint8_t R8(uint32_t a) { if (is_mmio(a)) return (uint8_t)mmio_read(a, 1); return MEM[xl(a)]; }
-static inline uint16_t R16(uint32_t a) { if (is_mmio(a)) return (uint16_t)mmio_read(a, 2); uint16_t v; memcpy(&v, MEM + xl(a), 2); return __builtin_bswap16(v); }
-static inline uint32_t R32(uint32_t a) { if (is_mmio(a)) return mmio_read(a, 4); uint32_t v; memcpy(&v, MEM + xl(a), 4); return __builtin_bswap32(v); }
+#ifdef MEMWATCH
+void memwatch_rhit(uint32_t a);
+extern uint32_t g_rwatch_lo, g_rwatch_hi;
+#define RWATCHCHK(a) do { if ((a) - g_rwatch_lo < g_rwatch_hi - g_rwatch_lo) memwatch_rhit(a); } while (0)
+#else
+#define RWATCHCHK(a) do {} while (0)
+#endif
+static inline uint8_t R8(uint32_t a) { RWATCHCHK(a); if (is_mmio(a)) return (uint8_t)mmio_read(a, 1); return MEM[xl(a)]; }
+static inline uint16_t R16(uint32_t a) { RWATCHCHK(a); if (is_mmio(a)) return (uint16_t)mmio_read(a, 2); uint16_t v; memcpy(&v, MEM + xl(a), 2); return __builtin_bswap16(v); }
+static inline uint32_t R32(uint32_t a) { RWATCHCHK(a); if (is_mmio(a)) return mmio_read(a, 4); uint32_t v; memcpy(&v, MEM + xl(a), 4); return __builtin_bswap32(v); }
 static inline uint64_t R64(uint32_t a) { uint64_t v; memcpy(&v, MEM + xl(a), 8); return __builtin_bswap64(v); }
 #ifdef MEMWATCH
 void memwatch_hit(uint32_t a);

@@ -148,7 +148,11 @@ static uint32_t remote_buttons(float& sx, float& sy) {
     if (b & IN_START) m |= W_PLUS;
     if (b & IN_BACK) m |= W_MINUS;
     if (b & IN_GUIDE) m |= W_HOME;
-    for (auto& p : g_script) if (script_clock() >= p.from && script_clock() <= p.to) m |= p.mask & 0xFFFF;
+    for (auto& p : g_script) if (script_clock() >= p.from && script_clock() <= p.to) {
+        m |= p.mask & 0xFFFF;
+        if (p.mask & (1u << 16)) sy = 1; if (p.mask & (1u << 17)) sy = -1;      // LSU/LSD/LSL/LSR: Nunchuk stick
+        if (p.mask & (1u << 18)) sx = -1; if (p.mask & (1u << 19)) sx = 1;
+    }
     float len = std::sqrt(sx * sx + sy * sy);
     if (len > 1) { sx /= len; sy /= len; }
     return m;
