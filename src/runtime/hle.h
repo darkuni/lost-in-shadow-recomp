@@ -19,6 +19,7 @@ uint32_t guest_call(Ctx* c, uint32_t fn, std::initializer_list<uint32_t> args);
 // point where interrupts are enabled.
 void post_irq(std::function<void(Ctx*)> fn);
 void post_irq_front(std::function<void(Ctx*)> fn);
+void post_irq_after(uint32_t us, std::function<void(Ctx*)> fn);   // device completion, delivered later
 
 // Threads
 void threads_init_main(Ctx* c);

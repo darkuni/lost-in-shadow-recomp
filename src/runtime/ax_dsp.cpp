@@ -62,6 +62,10 @@ static int16_t fetch(Voice& v, bool& stopped) {
                 v.w[P_ADPCM + 19] = v.w[P_LOOPINFO + 2];
             }
         } else {
+            // the accelerator always wraps to the loop address at the end; a voice that doesn't loop
+            // also stops. NW4R points the loop address of one-shots at its zero buffer and treats
+            // "current address inside the zero buffer" as finished (Lost in Shadow waits on it).
+            cur = loop;
             stopped = true;
             v.w[P_RUNNING] = 0;
         }
@@ -136,10 +140,12 @@ static void process_pbs(uint32_t pb) {
               } }
 #endif
             static bool vlog = getenv("AXVOICES") != nullptr;
+            static uint64_t vperiod = vlog ? std::max(64, atoi(getenv("AXVOICES"))) : 20000;
             static uint64_t vn = 0;
-            if (vlog && (vn++ % 20000) < 64)
-                fprintf(g_log, "[axv] pb %08X fmt %02X loopflag %d loop %08X end %08X cur %08X ratio %08X stream %d vol %04X mixctrl %08X L %04X R %04X\n", a, v.w[P_ADDR + 1], v.w[P_ADDR],
+            if (vlog && (vn++ % vperiod) < 64) {
+                { extern uint64_t g_vi_count; fprintf(g_log, "[axv] VI %llu ", (unsigned long long)g_vi_count); } fprintf(g_log, "pb %08X fmt %02X loopflag %d loop %08X end %08X cur %08X ratio %08X stream %d vol %04X mixctrl %08X L %04X R %04X\n", a, v.w[P_ADDR + 1], v.w[P_ADDR],
                         v.u32(P_ADDR + 2), v.u32(P_ADDR + 4), v.u32(P_ADDR + 6), v.u32(P_SRC), v.w[P_STREAM], v.w[P_VOL], v.u32(P_MIXCTRL), v.w[P_MIX], v.w[P_MIX + 2]);
+            }
             process_voice(v);
             // write back the state the DSP owns
             for (int i = P_MIX; i < P_MIX + 24; i++) W16(a + 2 * i, v.w[i]);

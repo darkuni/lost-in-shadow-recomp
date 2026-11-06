@@ -3,6 +3,7 @@
 
 // fn_8028BE50
 void f_8028BE50(Ctx* __restrict c) {
+  trace_call(0x8028BE50u);
   {uint32_t ea=c->r[3]+0x000000DCu; c->f[2]=c->ps1[2]=RF32(ea);} // 8028BE50
   {uint32_t ea=c->r[3]+0x000000E0u; c->f[1]=c->ps1[1]=RF32(ea);} // 8028BE54
   fcmp(c,0,c->f[2],c->f[1]); // 8028BE58
@@ -25,6 +26,7 @@ L_8028BE88:;
 
 // fn_8028BE90
 void f_8028BE90(Ctx* __restrict c) {
+  trace_call(0x8028BE90u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028BE90
   c->r[0]=c->lr; // 8028BE94
   cmpu(c,0,c->r[4],0x00000001u); // 8028BE98
@@ -234,6 +236,7 @@ L_8028C17C:;
 
 // fn_8028C1A0
 void f_8028C1A0(Ctx* __restrict c) {
+  trace_call(0x8028C1A0u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028C1A0
   c->r[0]=c->lr; // 8028C1A4
   W32(c->r[1]+0x00000024u,c->r[0]); // 8028C1A8
@@ -325,6 +328,7 @@ L_8028C2C0:;
 
 // fn_8028C2E0
 void f_8028C2E0(Ctx* __restrict c) {
+  trace_call(0x8028C2E0u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028C2E0
   c->r[0]=c->lr; // 8028C2E4
   W32(c->r[1]+0x00000024u,c->r[0]); // 8028C2E8
@@ -405,6 +409,7 @@ L_8028C3E0:;
 
 // fn_8028C400
 void f_8028C400(Ctx* __restrict c) {
+  trace_call(0x8028C400u);
   cmpu(c,0,c->r[4],0x00000009u); // 8028C400
   if (!crb(c,0)) { goto L_8028C428; } // 8028C404
   c->r[7]=c->r[4]+0xFFFFFFFFu; // 8028C408
@@ -426,6 +431,7 @@ L_8028C42C:;
 
 // fn_8028C440
 void f_8028C440(Ctx* __restrict c) {
+  trace_call(0x8028C440u);
   {uint32_t ea=c->r[1]+0xFFFFFFD0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028C440
   c->r[0]=c->lr; // 8028C444
   W32(c->r[1]+0x00000034u,c->r[0]); // 8028C448
@@ -747,6 +753,7 @@ L_8028C8B4:;
 
 // fn_8028C8D0
 void f_8028C8D0(Ctx* __restrict c) {
+  trace_call(0x8028C8D0u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028C8D0
   c->r[0]=c->lr; // 8028C8D4
   W32(c->r[1]+0x00000014u,c->r[0]); // 8028C8D8
@@ -856,6 +863,7 @@ L_8028CA48:;
 
 // fn_8028CA60
 void f_8028CA60(Ctx* __restrict c) {
+  trace_call(0x8028CA60u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028CA60
   c->r[0]=c->lr; // 8028CA64
   W32(c->r[1]+0x00000024u,c->r[0]); // 8028CA68
@@ -912,6 +920,7 @@ L_8028CB00:;
 
 // fn_8028CB20
 void f_8028CB20(Ctx* __restrict c) {
+  trace_call(0x8028CB20u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028CB20
   c->r[0]=c->lr; // 8028CB24
   W32(c->r[1]+0x00000014u,c->r[0]); // 8028CB28
@@ -955,6 +964,7 @@ L_8028CB98:;
 
 // fn_8028CBB0
 void f_8028CBB0(Ctx* __restrict c) {
+  trace_call(0x8028CBB0u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028CBB0
   c->r[0]=c->lr; // 8028CBB4
   W32(c->r[1]+0x00000024u,c->r[0]); // 8028CBB8
@@ -997,6 +1007,7 @@ L_8028CC18:;
 
 // fn_8028CC50
 void f_8028CC50(Ctx* __restrict c) {
+  trace_call(0x8028CC50u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028CC50
   c->r[0]=c->lr; // 8028CC54
   cmps(c,0,(int32_t)c->r[3],0); // 8028CC58
@@ -1072,6 +1083,7 @@ L_8028CD40:;
 
 // fn_8028CD60
 void f_8028CD60(Ctx* __restrict c) {
+  trace_call(0x8028CD60u);
   c->r[3]=0u+0x80310000u; // 8028CD60
   c->r[0]=R32(c->r[4]+0x00000000u); // 8028CD64
   c->r[3]=c->r[3]+0xFFFFF900u; // 8028CD68
@@ -1098,6 +1110,7 @@ L_8028CD98:;
 
 // fn_8028CDB0
 void f_8028CDB0(Ctx* __restrict c) {
+  trace_call(0x8028CDB0u);
   c->r[3]=0u+0x80310000u; // 8028CDB0
   c->r[0]=R32(c->r[4]+0x00000000u); // 8028CDB4
   c->r[3]=c->r[3]+0xFFFFF8E0u; // 8028CDB8
@@ -1117,6 +1130,7 @@ L_8028CDCC:;
 
 // fn_8028CDF0
 void f_8028CDF0(Ctx* __restrict c) {
+  trace_call(0x8028CDF0u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028CDF0
   c->r[0]=c->lr; // 8028CDF4
   W32(c->r[1]+0x00000014u,c->r[0]); // 8028CDF8
@@ -1133,6 +1147,7 @@ void f_8028CDF0(Ctx* __restrict c) {
 
 // fn_8028CE20
 void f_8028CE20(Ctx* __restrict c) {
+  trace_call(0x8028CE20u);
   c->r[3]=0u+0x80310000u; // 8028CE20
   c->r[3]=c->r[3]+0xFFFFF900u; // 8028CE24
   return; // 8028CE28
@@ -1140,6 +1155,7 @@ void f_8028CE20(Ctx* __restrict c) {
 
 // fn_8028CE30
 void f_8028CE30(Ctx* __restrict c) {
+  trace_call(0x8028CE30u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028CE30
   c->r[0]=c->lr; // 8028CE34
   W32(c->r[1]+0x00000014u,c->r[0]); // 8028CE38
@@ -1156,6 +1172,7 @@ void f_8028CE30(Ctx* __restrict c) {
 
 // fn_8028CE60
 void f_8028CE60(Ctx* __restrict c) {
+  trace_call(0x8028CE60u);
   c->r[3]=0u+0x80310000u; // 8028CE60
   c->r[3]=c->r[3]+0xFFFFF8E0u; // 8028CE64
   return; // 8028CE68
@@ -1163,6 +1180,7 @@ void f_8028CE60(Ctx* __restrict c) {
 
 // fn_8028CE70
 void f_8028CE70(Ctx* __restrict c) {
+  trace_call(0x8028CE70u);
   {uint32_t ea=c->r[1]+0xFFFFFFB0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028CE70
   c->r[0]=c->lr; // 8028CE74
   W32(c->r[1]+0x00000054u,c->r[0]); // 8028CE78
@@ -1342,6 +1360,7 @@ L_8028D0DC:;
 
 // fn_8028D100
 void f_8028D100(Ctx* __restrict c) {
+  trace_call(0x8028D100u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028D100
   c->r[0]=c->lr; // 8028D104
   cmpu(c,0,c->r[4],0x00000009u); // 8028D108
@@ -1392,6 +1411,7 @@ L_8028D194:;
 
 // fn_8028D1B0
 void f_8028D1B0(Ctx* __restrict c) {
+  trace_call(0x8028D1B0u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028D1B0
   c->r[0]=c->lr; // 8028D1B4
   cmps(c,0,(int32_t)c->r[4],0); // 8028D1B8
@@ -1421,6 +1441,7 @@ L_8028D1FC:;
 
 // fn_8028D210
 void f_8028D210(Ctx* __restrict c) {
+  trace_call(0x8028D210u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028D210
   c->r[0]=c->lr; // 8028D214
   c->r[4]=c->r[3]|c->r[3]; // 8028D218
@@ -1440,6 +1461,7 @@ void f_8028D210(Ctx* __restrict c) {
 
 // fn_8028D250
 void f_8028D250(Ctx* __restrict c) {
+  trace_call(0x8028D250u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028D250
   c->r[0]=c->lr; // 8028D254
   cmps(c,0,(int32_t)c->r[4],0); // 8028D258
@@ -1475,6 +1497,7 @@ L_8028D2A8:;
 
 // fn_8028D2D0
 void f_8028D2D0(Ctx* __restrict c) {
+  trace_call(0x8028D2D0u);
   {uint32_t ea=c->r[1]+0xFFFFFF20u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028D2D0
   c->r[0]=c->lr; // 8028D2D4
   W32(c->r[1]+0x000000E4u,c->r[0]); // 8028D2D8
@@ -1709,6 +1732,7 @@ L_8028D5D0:;
 
 // fn_8028D630
 void f_8028D630(Ctx* __restrict c) {
+  trace_call(0x8028D630u);
   {uint32_t ea=c->r[1]+0xFFFFFFD0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028D630
   c->r[0]=c->lr; // 8028D634
   W32(c->r[1]+0x00000034u,c->r[0]); // 8028D638
@@ -1844,6 +1868,7 @@ void f_8028D7C0(Ctx* __restrict c) {
 
 // fn_8028D810
 void f_8028D810(Ctx* __restrict c) {
+  trace_call(0x8028D810u);
   c->r[12]=R32(c->r[3]+0x00000000u); // 8028D810
   c->r[4]=0u+0x00000002u; // 8028D814
   c->r[5]=0u+0x00000000u; // 8028D818
@@ -1855,6 +1880,7 @@ void f_8028D810(Ctx* __restrict c) {
 
 // fn_8028D830
 void f_8028D830(Ctx* __restrict c) {
+  trace_call(0x8028D830u);
   {uint32_t ea=c->r[1]+0xFFFFFFB0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028D830
   c->r[0]=c->lr; // 8028D834
   W32(c->r[1]+0x00000054u,c->r[0]); // 8028D838
@@ -1889,6 +1915,7 @@ void f_8028D830(Ctx* __restrict c) {
 
 // fn_8028D8B0
 void f_8028D8B0(Ctx* __restrict c) {
+  trace_call(0x8028D8B0u);
   {uint32_t ea=c->r[1]+0xFFFFFEB0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028D8B0
   c->r[0]=c->lr; // 8028D8B4
   W32(c->r[1]+0x00000154u,c->r[0]); // 8028D8B8
@@ -2106,6 +2133,7 @@ void f_8028DB60(Ctx* __restrict c) {
 
 // fn_8028DBC0
 void f_8028DBC0(Ctx* __restrict c) {
+  trace_call(0x8028DBC0u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028DBC0
   c->r[0]=c->lr; // 8028DBC4
   W32(c->r[1]+0x00000014u,c->r[0]); // 8028DBC8
@@ -2141,6 +2169,7 @@ L_8028DC18:;
 
 // fn_8028DC40
 void f_8028DC40(Ctx* __restrict c) {
+  trace_call(0x8028DC40u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028DC40
   c->r[0]=c->lr; // 8028DC44
   W32(c->r[1]+0x00000014u,c->r[0]); // 8028DC48
@@ -2176,6 +2205,7 @@ L_8028DC98:;
 
 // fn_8028DCC0
 void f_8028DCC0(Ctx* __restrict c) {
+  trace_call(0x8028DCC0u);
   cmps(c,0,(int32_t)c->r[4],0); // 8028DCC0
   if (crb(c,2)) { goto L_8028DCDC; } // 8028DCC4
   c->r[0]=R32(c->r[3]+0x000000F0u); // 8028DCC8
@@ -2262,6 +2292,7 @@ L_8028DDA8:;
 
 // fn_8028DDF0
 void f_8028DDF0(Ctx* __restrict c) {
+  trace_call(0x8028DDF0u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028DDF0
   c->r[0]=c->lr; // 8028DDF4
   cmps(c,0,(int32_t)c->r[3],0); // 8028DDF8
@@ -2299,6 +2330,7 @@ L_8028DE54:;
 
 // fn_8028DE70
 void f_8028DE70(Ctx* __restrict c) {
+  trace_call(0x8028DE70u);
   {uint32_t ea=c->r[1]+0xFFFFFFC0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028DE70
   c->r[0]=c->lr; // 8028DE74
   W32(c->r[1]+0x00000044u,c->r[0]); // 8028DE78
@@ -2396,6 +2428,7 @@ L_8028DFB0:;
 
 // fn_8028DFD0
 void f_8028DFD0(Ctx* __restrict c) {
+  trace_call(0x8028DFD0u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028DFD0
   c->r[0]=c->lr; // 8028DFD4
   c->r[5]=0u+0x80290000u; // 8028DFD8
@@ -3060,6 +3093,7 @@ L_8028E898:;
 
 // fn_8028E8B0
 void f_8028E8B0(Ctx* __restrict c) {
+  trace_call(0x8028E8B0u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028E8B0
   c->r[0]=c->lr; // 8028E8B4
   c->r[5]=0u+0x80290000u; // 8028E8B8
@@ -3088,6 +3122,7 @@ void f_8028E8B0(Ctx* __restrict c) {
 
 // fn_8028E910
 void f_8028E910(Ctx* __restrict c) {
+  trace_call(0x8028E910u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028E910
   c->r[0]=c->lr; // 8028E914
   W32(c->r[1]+0x00000024u,c->r[0]); // 8028E918
@@ -3130,6 +3165,7 @@ L_8028E988:;
 
 // fn_8028E9A0
 void f_8028E9A0(Ctx* __restrict c) {
+  trace_call(0x8028E9A0u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028E9A0
   c->r[0]=c->lr; // 8028E9A4
   W32(c->r[1]+0x00000024u,c->r[0]); // 8028E9A8
@@ -3202,6 +3238,7 @@ void f_8028EA30(Ctx* __restrict c) {
 
 // fn_8028EAA0
 void f_8028EAA0(Ctx* __restrict c) {
+  trace_call(0x8028EAA0u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028EAA0
   c->r[0]=c->lr; // 8028EAA4
   W32(c->r[1]+0x00000024u,c->r[0]); // 8028EAA8
@@ -3242,6 +3279,7 @@ L_8028EAFC:;
 
 // fn_8028EB30
 void f_8028EB30(Ctx* __restrict c) {
+  trace_call(0x8028EB30u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028EB30
   c->r[0]=c->lr; // 8028EB34
   W32(c->r[1]+0x00000024u,c->r[0]); // 8028EB38
@@ -3282,12 +3320,14 @@ L_8028EB8C:;
 
 // fn_8028EBC0
 void f_8028EBC0(Ctx* __restrict c) {
+  trace_call(0x8028EBC0u);
   c->r[3]=0u+0x00000000u; // 8028EBC0
   return; // 8028EBC4
 }
 
 // fn_8028EBD0
 void f_8028EBD0(Ctx* __restrict c) {
+  trace_call(0x8028EBD0u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028EBD0
   c->r[0]=c->lr; // 8028EBD4
   cmps(c,0,(int32_t)c->r[3],0); // 8028EBD8
@@ -3309,6 +3349,7 @@ L_8028EBF8:;
 
 // fn_8028EC10
 void f_8028EC10(Ctx* __restrict c) {
+  trace_call(0x8028EC10u);
   c->r[0]=0u+0x00000000u; // 8028EC10
   W32(c->r[3]+0x00000014u,c->r[0]); // 8028EC14
   W32(c->r[3]+0x00000010u,c->r[0]); // 8028EC18
@@ -3317,6 +3358,7 @@ void f_8028EC10(Ctx* __restrict c) {
 
 // fn_8028EC20
 void f_8028EC20(Ctx* __restrict c) {
+  trace_call(0x8028EC20u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028EC20
   c->r[0]=c->lr; // 8028EC24
   cmps(c,0,(int32_t)c->r[3],0); // 8028EC28
@@ -3338,6 +3380,7 @@ L_8028EC48:;
 
 // fn_8028EC60
 void f_8028EC60(Ctx* __restrict c) {
+  trace_call(0x8028EC60u);
   c->r[3]=0u+0x80310000u; // 8028EC60
   c->r[0]=R32(c->r[4]+0x00000000u); // 8028EC64
   c->r[3]=c->r[3]+0xFFFFF910u; // 8028EC68
@@ -3371,6 +3414,7 @@ L_8028ECB0:;
 
 // fn_8028ECD0
 void f_8028ECD0(Ctx* __restrict c) {
+  trace_call(0x8028ECD0u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028ECD0
   c->r[0]=c->lr; // 8028ECD4
   W32(c->r[1]+0x00000014u,c->r[0]); // 8028ECD8
@@ -3387,6 +3431,7 @@ void f_8028ECD0(Ctx* __restrict c) {
 
 // fn_8028ED00
 void f_8028ED00(Ctx* __restrict c) {
+  trace_call(0x8028ED00u);
   c->r[3]=0u+0x80310000u; // 8028ED00
   c->r[3]=c->r[3]+0xFFFFF910u; // 8028ED04
   return; // 8028ED08
@@ -3394,12 +3439,14 @@ void f_8028ED00(Ctx* __restrict c) {
 
 // fn_8028ED10
 void f_8028ED10(Ctx* __restrict c) {
+  trace_call(0x8028ED10u);
   c->r[3]=0u+0x00000000u; // 8028ED10
   return; // 8028ED14
 }
 
 // fn_8028ED20
 void f_8028ED20(Ctx* __restrict c) {
+  trace_call(0x8028ED20u);
   {uint32_t ea=c->r[1]+0xFFFFFFC0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028ED20
   c->r[0]=c->lr; // 8028ED24
   W32(c->r[1]+0x00000044u,c->r[0]); // 8028ED28
@@ -3649,6 +3696,7 @@ void f_8028F070(Ctx* __restrict c) {
 
 // fn_8028F0B0
 void f_8028F0B0(Ctx* __restrict c) {
+  trace_call(0x8028F0B0u);
   {uint32_t ea=c->r[1]+0xFFFFFFD0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028F0B0
   c->r[0]=c->lr; // 8028F0B4
   W32(c->r[1]+0x00000034u,c->r[0]); // 8028F0B8
@@ -3883,6 +3931,7 @@ L_8028F3E0:;
 
 // fn_8028F400
 void f_8028F400(Ctx* __restrict c) {
+  trace_call(0x8028F400u);
   {uint32_t ea=c->r[1]+0xFFFFFFC0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028F400
   c->r[0]=c->lr; // 8028F404
   cmpu(c,0,c->r[4],0x00000009u); // 8028F408
@@ -4489,6 +4538,7 @@ L_8028FC74:;
 
 // fn_8028FC90
 void f_8028FC90(Ctx* __restrict c) {
+  trace_call(0x8028FC90u);
   c->r[0]=c->r[4]+0xFFFE0000u; // 8028FC90
   cmpu(c,0,c->r[0],0x00000001u); // 8028FC94
   if (!crb(c,2)) { goto L_8028FCC4; } // 8028FC98
@@ -4512,6 +4562,7 @@ L_8028FCC8:;
 
 // fn_8028FCD0
 void f_8028FCD0(Ctx* __restrict c) {
+  trace_call(0x8028FCD0u);
   cmps(c,0,(int32_t)c->r[5],0); // 8028FCD0
   if (!crb(c,2)) { goto L_8028FCE0; } // 8028FCD4
   c->r[3]=0u+0x00000000u; // 8028FCD8
@@ -4533,6 +4584,7 @@ L_8028FD00:;
 
 // fn_8028FD10
 void f_8028FD10(Ctx* __restrict c) {
+  trace_call(0x8028FD10u);
   {uint32_t ea=c->r[1]+0xFFFFFFC0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8028FD10
   c->r[0]=c->lr; // 8028FD14
   cmps(c,0,(int32_t)c->r[4],0); // 8028FD18
@@ -5039,6 +5091,7 @@ L_802903D8:;
 
 // fn_80290400
 void f_80290400(Ctx* __restrict c) {
+  trace_call(0x80290400u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80290400
   c->r[0]=c->lr; // 80290404
   cmps(c,0,(int32_t)c->r[4],0); // 80290408
@@ -5144,6 +5197,7 @@ L_80290564:;
 
 // fn_80290580
 void f_80290580(Ctx* __restrict c) {
+  trace_call(0x80290580u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80290580
   c->r[0]=c->lr; // 80290584
   cmps(c,0,(int32_t)c->r[4],0); // 80290588
@@ -5210,6 +5264,7 @@ L_80290648:;
 
 // fn_80290660
 void f_80290660(Ctx* __restrict c) {
+  trace_call(0x80290660u);
   cmps(c,0,(int32_t)c->r[4],0); // 80290660
   if (crb(c,2)) { goto L_8029068C; } // 80290664
   cmps(c,0,(int32_t)c->r[4],1); // 80290668
@@ -5243,6 +5298,7 @@ L_802906B4:;
 
 // fn_802906C0
 void f_802906C0(Ctx* __restrict c) {
+  trace_call(0x802906C0u);
   cmps(c,0,(int32_t)c->r[4],0); // 802906C0
   if (crb(c,2)) { goto L_802906EC; } // 802906C4
   cmps(c,0,(int32_t)c->r[4],1); // 802906C8
@@ -5346,6 +5402,7 @@ void f_802907E0(Ctx* __restrict c) {
 
 // fn_80290810
 void f_80290810(Ctx* __restrict c) {
+  trace_call(0x80290810u);
   c->r[5]=R32(c->r[3]+0x000000F8u); // 80290810
   cmps(c,0,(int32_t)c->r[5],0); // 80290814
   if (crb(c,2)) { goto L_8029083C; } // 80290818
@@ -5364,6 +5421,7 @@ L_8029083C:;
 
 // fn_80290850
 void f_80290850(Ctx* __restrict c) {
+  trace_call(0x80290850u);
   c->r[5]=R32(c->r[3]+0x000000FCu); // 80290850
   cmps(c,0,(int32_t)c->r[5],0); // 80290854
   if (crb(c,2)) { goto L_8029087C; } // 80290858
@@ -5382,6 +5440,7 @@ L_8029087C:;
 
 // fn_80290890
 void f_80290890(Ctx* __restrict c) {
+  trace_call(0x80290890u);
   {uint32_t ea=c->r[1]+0xFFFFFFB0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80290890
   c->r[0]=c->lr; // 80290894
   W32(c->r[1]+0x00000054u,c->r[0]); // 80290898
@@ -5666,6 +5725,7 @@ L_80290C84:;
 
 // fn_80290CA0
 void f_80290CA0(Ctx* __restrict c) {
+  trace_call(0x80290CA0u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80290CA0
   c->r[0]=c->lr; // 80290CA4
   cmps(c,0,(int32_t)c->r[3],0); // 80290CA8
@@ -5760,6 +5820,7 @@ L_80290DD0:;
 
 // fn_80290DF0
 void f_80290DF0(Ctx* __restrict c) {
+  trace_call(0x80290DF0u);
   c->r[3]=0u+0x80310000u; // 80290DF0
   c->r[0]=R32(c->r[4]+0x00000000u); // 80290DF4
   c->r[3]=c->r[3]+0xFFFFF920u; // 80290DF8
@@ -5793,6 +5854,7 @@ L_80290E40:;
 
 // fn_80290E60
 void f_80290E60(Ctx* __restrict c) {
+  trace_call(0x80290E60u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80290E60
   c->r[0]=c->lr; // 80290E64
   W32(c->r[1]+0x00000014u,c->r[0]); // 80290E68
@@ -5809,6 +5871,7 @@ void f_80290E60(Ctx* __restrict c) {
 
 // fn_80290E90
 void f_80290E90(Ctx* __restrict c) {
+  trace_call(0x80290E90u);
   c->r[3]=0u+0x80310000u; // 80290E90
   c->r[3]=c->r[3]+0xFFFFF920u; // 80290E94
   return; // 80290E98
@@ -5816,6 +5879,7 @@ void f_80290E90(Ctx* __restrict c) {
 
 // fn_80290EA0
 void f_80290EA0(Ctx* __restrict c) {
+  trace_call(0x80290EA0u);
   {uint32_t ea=c->r[1]+0xFFFFFEA0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80290EA0
   c->r[0]=c->lr; // 80290EA4
   W32(c->r[1]+0x00000164u,c->r[0]); // 80290EA8
@@ -7040,6 +7104,7 @@ L_80291F7C:;
 
 // fn_80291FA0
 void f_80291FA0(Ctx* __restrict c) {
+  trace_call(0x80291FA0u);
   {uint32_t ea=c->r[1]+0xFFFFFDC0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80291FA0
   c->r[0]=c->lr; // 80291FA4
   W32(c->r[1]+0x00000244u,c->r[0]); // 80291FA8
@@ -7604,6 +7669,7 @@ L_80292770:;
 
 // fn_80292790
 void f_80292790(Ctx* __restrict c) {
+  trace_call(0x80292790u);
   {uint32_t ea=c->r[1]+0xFFFFFFB0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80292790
   c->r[0]=c->lr; // 80292794
   W32(c->r[1]+0x00000054u,c->r[0]); // 80292798
@@ -7961,6 +8027,7 @@ L_80292C78:;
 
 // fn_80292C90
 void f_80292C90(Ctx* __restrict c) {
+  trace_call(0x80292C90u);
   c->r[0]=c->r[4]+0xFFFD0000u; // 80292C90
   cmpu(c,0,c->r[0],0x00000001u); // 80292C94
   if (!crb(c,2)) { goto L_80292CC4; } // 80292C98
@@ -7984,6 +8051,7 @@ L_80292CC8:;
 
 // fn_80292CD0
 void f_80292CD0(Ctx* __restrict c) {
+  trace_call(0x80292CD0u);
   cmps(c,0,(int32_t)c->r[5],0); // 80292CD0
   if (!crb(c,2)) { goto L_80292CE0; } // 80292CD4
   c->r[3]=0u+0x00000000u; // 80292CD8
@@ -8007,6 +8075,7 @@ L_80292D08:;
 
 // fn_80292D10
 void f_80292D10(Ctx* __restrict c) {
+  trace_call(0x80292D10u);
   {uint32_t ea=c->r[1]+0xFFFFFF60u; W32(ea,c->r[1]); c->r[1]=ea;} // 80292D10
   c->r[0]=c->lr; // 80292D14
   W32(c->r[1]+0x000000A4u,c->r[0]); // 80292D18
@@ -8558,6 +8627,7 @@ L_8029349C:;
 
 // fn_802934C0
 void f_802934C0(Ctx* __restrict c) {
+  trace_call(0x802934C0u);
   {uint32_t ea=c->r[1]+0xFFFFFFA0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802934C0
   c->r[0]=c->lr; // 802934C4
   W32(c->r[1]+0x00000064u,c->r[0]); // 802934C8
@@ -9024,6 +9094,7 @@ L_80293B28:;
 
 // fn_80293B60
 void f_80293B60(Ctx* __restrict c) {
+  trace_call(0x80293B60u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80293B60
   c->r[0]=c->lr; // 80293B64
   cmps(c,1,(int32_t)c->r[4],0); // 80293B68
@@ -9138,6 +9209,7 @@ L_80293CCC:;
 
 // fn_80293CF0
 void f_80293CF0(Ctx* __restrict c) {
+  trace_call(0x80293CF0u);
   {uint32_t ea=c->r[1]+0xFFFFFFC0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80293CF0
   c->r[0]=c->lr; // 80293CF4
   cmps(c,0,(int32_t)c->r[4],0); // 80293CF8
@@ -9311,6 +9383,7 @@ L_80293F2C:;
 
 // fn_80293F40
 void f_80293F40(Ctx* __restrict c) {
+  trace_call(0x80293F40u);
   cmps(c,0,(int32_t)c->r[4],5); // 80293F40
   if (!crb(c,2)) { goto L_80293F50; } // 80293F44
   c->r[3]=R32(c->r[3]+0x00000138u); // 80293F48
@@ -9322,6 +9395,7 @@ L_80293F50:;
 
 // fn_80293F60
 void f_80293F60(Ctx* __restrict c) {
+  trace_call(0x80293F60u);
   cmps(c,0,(int32_t)c->r[4],5); // 80293F60
   if (!crb(c,2)) { goto L_80293F70; } // 80293F64
   c->r[3]=R32(c->r[3]+0x00000138u); // 80293F68
@@ -9333,6 +9407,7 @@ L_80293F70:;
 
 // fn_80293F80
 void f_80293F80(Ctx* __restrict c) {
+  trace_call(0x80293F80u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80293F80
   c->r[0]=c->lr; // 80293F84
   cmps(c,0,(int32_t)c->r[3],0); // 80293F88
@@ -9418,6 +9493,7 @@ L_80294088:;
 
 // fn_802940A0
 void f_802940A0(Ctx* __restrict c) {
+  trace_call(0x802940A0u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802940A0
   c->r[0]=c->lr; // 802940A4
   W32(c->r[1]+0x00000014u,c->r[0]); // 802940A8
@@ -9434,6 +9510,7 @@ void f_802940A0(Ctx* __restrict c) {
 
 // fn_802940D0
 void f_802940D0(Ctx* __restrict c) {
+  trace_call(0x802940D0u);
   c->r[3]=0u+0x80310000u; // 802940D0
   c->r[3]=c->r[3]+0xFFFFF938u; // 802940D4
   return; // 802940D8
@@ -9441,6 +9518,7 @@ void f_802940D0(Ctx* __restrict c) {
 
 // fn_802940E0
 void f_802940E0(Ctx* __restrict c) {
+  trace_call(0x802940E0u);
   {uint32_t ea=c->r[1]+0xFFFFFE00u; W32(ea,c->r[1]); c->r[1]=ea;} // 802940E0
   c->r[0]=c->lr; // 802940E4
   W32(c->r[1]+0x00000204u,c->r[0]); // 802940E8
@@ -9757,6 +9835,7 @@ L_80294534:;
 
 // fn_80294560
 void f_80294560(Ctx* __restrict c) {
+  trace_call(0x80294560u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80294560
   c->r[0]=c->lr; // 80294564
   W32(c->r[1]+0x00000014u,c->r[0]); // 80294568
@@ -9838,6 +9917,7 @@ L_8029465C:;
 
 // fn_80294680
 void f_80294680(Ctx* __restrict c) {
+  trace_call(0x80294680u);
   c->r[3]=0u+0x000007FFu; // 80294680
   f_8027D580(c); return; // 80294684
 }
@@ -9851,6 +9931,7 @@ void f_80294690(Ctx* __restrict c) {
 
 // fn_802946A0
 void f_802946A0(Ctx* __restrict c) {
+  trace_call(0x802946A0u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802946A0
   c->r[0]=c->lr; // 802946A4
   W32(c->r[1]+0x00000014u,c->r[0]); // 802946A8
@@ -9904,6 +9985,7 @@ L_80294748:;
 
 // fn_80294760
 void f_80294760(Ctx* __restrict c) {
+  trace_call(0x80294760u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80294760
   c->r[0]=c->lr; // 80294764
   W32(c->r[1]+0x00000024u,c->r[0]); // 80294768
@@ -9964,6 +10046,7 @@ L_80294814:;
 
 // fn_80294830
 void f_80294830(Ctx* __restrict c) {
+  trace_call(0x80294830u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80294830
   c->r[0]=c->lr; // 80294834
   W32(c->r[1]+0x00000024u,c->r[0]); // 80294838
@@ -10007,6 +10090,7 @@ L_802948A4:;
 
 // fn_802948D0
 void f_802948D0(Ctx* __restrict c) {
+  trace_call(0x802948D0u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802948D0
   c->r[0]=c->lr; // 802948D4
   W32(c->r[1]+0x00000024u,c->r[0]); // 802948D8
@@ -10053,6 +10137,7 @@ L_80294958:;
 
 // fn_80294970
 void f_80294970(Ctx* __restrict c) {
+  trace_call(0x80294970u);
   c->r[0]=0u+0x00000000u; // 80294970
   W32(c->r[3]+0x00000000u,c->r[0]); // 80294974
   c->r[4]=0u+0x00000040u; // 80294978
@@ -10062,6 +10147,7 @@ void f_80294970(Ctx* __restrict c) {
 
 // fn_80294990
 void f_80294990(Ctx* __restrict c) {
+  trace_call(0x80294990u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80294990
   c->r[0]=c->lr; // 80294994
   c->r[3]=c->r[3]+0x00000004u; // 80294998
@@ -10098,6 +10184,7 @@ void f_802949C0(Ctx* __restrict c) {
 
 // fn_80294A00
 void f_80294A00(Ctx* __restrict c) {
+  trace_call(0x80294A00u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80294A00
   c->r[0]=c->lr; // 80294A04
   W32(c->r[1]+0x00000014u,c->r[0]); // 80294A08
@@ -10118,6 +10205,7 @@ void f_80294A00(Ctx* __restrict c) {
 
 // fn_80294A40
 void f_80294A40(Ctx* __restrict c) {
+  trace_call(0x80294A40u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80294A40
   c->r[0]=c->lr; // 80294A44
   W32(c->r[1]+0x00000014u,c->r[0]); // 80294A48
@@ -10138,6 +10226,7 @@ void f_80294A40(Ctx* __restrict c) {
 
 // fn_80294A80
 void f_80294A80(Ctx* __restrict c) {
+  trace_call(0x80294A80u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80294A80
   c->r[0]=c->lr; // 80294A84
   W32(c->r[1]+0x00000014u,c->r[0]); // 80294A88
@@ -10158,6 +10247,7 @@ void f_80294A80(Ctx* __restrict c) {
 
 // fn_80294AC0
 void f_80294AC0(Ctx* __restrict c) {
+  trace_call(0x80294AC0u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80294AC0
   c->r[0]=c->lr; // 80294AC4
   W32(c->r[1]+0x00000014u,c->r[0]); // 80294AC8
@@ -10178,6 +10268,7 @@ void f_80294AC0(Ctx* __restrict c) {
 
 // fn_80294B00
 void f_80294B00(Ctx* __restrict c) {
+  trace_call(0x80294B00u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80294B00
   c->r[0]=c->lr; // 80294B04
   W32(c->r[1]+0x00000014u,c->r[0]); // 80294B08
@@ -10248,6 +10339,7 @@ void f_80294B80(Ctx* __restrict c) {
 
 // fn_80294BE0
 void f_80294BE0(Ctx* __restrict c) {
+  trace_call(0x80294BE0u);
   cmps(c,0,(int32_t)c->r[4],0); // 80294BE0
   if (crb(c,2)) return; // 80294BE4
   c->r[3]=c->r[3]+0x00000004u; // 80294BE8
@@ -10259,6 +10351,7 @@ void f_80294BE0(Ctx* __restrict c) {
 
 // fn_80294C00
 void f_80294C00(Ctx* __restrict c) {
+  trace_call(0x80294C00u);
   cmps(c,0,(int32_t)c->r[4],0); // 80294C00
   if (crb(c,2)) return; // 80294C04
   c->r[3]=c->r[3]+0x00000004u; // 80294C08
@@ -10270,6 +10363,7 @@ void f_80294C00(Ctx* __restrict c) {
 
 // fn_80294C20
 void f_80294C20(Ctx* __restrict c) {
+  trace_call(0x80294C20u);
   {uint32_t ea=c->r[1]+0xFFFFFEB0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80294C20
   c->r[0]=c->lr; // 80294C24
   W32(c->r[1]+0x00000154u,c->r[0]); // 80294C28
@@ -10771,6 +10865,7 @@ L_8029532C:;
 
 // fn_80295360
 void f_80295360(Ctx* __restrict c) {
+  trace_call(0x80295360u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80295360
   c->r[0]=c->lr; // 80295364
   W32(c->r[1]+0x00000024u,c->r[0]); // 80295368
@@ -10871,6 +10966,7 @@ L_802954A4:;
 
 // fn_802954C0
 void f_802954C0(Ctx* __restrict c) {
+  trace_call(0x802954C0u);
   {uint32_t ea=c->r[1]+0xFFFFFFC0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802954C0
   c->r[0]=c->lr; // 802954C4
   W32(c->r[1]+0x00000044u,c->r[0]); // 802954C8
@@ -10952,6 +11048,7 @@ L_802955BC:;
 
 // fn_802955E0
 void f_802955E0(Ctx* __restrict c) {
+  trace_call(0x802955E0u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802955E0
   c->r[0]=c->lr; // 802955E4
   W32(c->r[1]+0x00000024u,c->r[0]); // 802955E8
@@ -11022,6 +11119,7 @@ L_802956B4:;
 
 // fn_802956D0
 void f_802956D0(Ctx* __restrict c) {
+  trace_call(0x802956D0u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802956D0
   c->r[0]=c->lr; // 802956D4
   W32(c->r[1]+0x00000014u,c->r[0]); // 802956D8
@@ -11087,6 +11185,7 @@ L_80295794:;
 
 // fn_802957B0
 void f_802957B0(Ctx* __restrict c) {
+  trace_call(0x802957B0u);
   {uint32_t ea=c->r[1]+0xFFFFFA30u; W32(ea,c->r[1]); c->r[1]=ea;} // 802957B0
   c->r[0]=c->lr; // 802957B4
   W32(c->r[1]+0x000005D4u,c->r[0]); // 802957B8
@@ -11990,6 +12089,7 @@ L_80296424:;
 
 // fn_80296450
 void f_80296450(Ctx* __restrict c) {
+  trace_call(0x80296450u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80296450
   c->r[0]=c->lr; // 80296454
   W32(c->r[1]+0x00000014u,c->r[0]); // 80296458
@@ -12015,6 +12115,7 @@ void f_80296450(Ctx* __restrict c) {
 
 // fn_802964B0
 void f_802964B0(Ctx* __restrict c) {
+  trace_call(0x802964B0u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802964B0
   c->r[0]=c->lr; // 802964B4
   cmps(c,0,(int32_t)c->r[3],0); // 802964B8
@@ -12036,6 +12137,7 @@ L_802964D8:;
 
 // fn_802964F0
 void f_802964F0(Ctx* __restrict c) {
+  trace_call(0x802964F0u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802964F0
   c->r[0]=c->lr; // 802964F4
   c->r[6]=0u+0x803C0000u; // 802964F8
@@ -12114,6 +12216,7 @@ void f_802964F0(Ctx* __restrict c) {
 
 // fn_80296620
 void f_80296620(Ctx* __restrict c) {
+  trace_call(0x80296620u);
   {uint32_t ea=c->r[1]+0xFFFFFFC0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80296620
   c->r[0]=c->lr; // 80296624
   W32(c->r[1]+0x00000044u,c->r[0]); // 80296628
@@ -12231,6 +12334,7 @@ L_802967A4:;
 
 // fn_802967C0
 void f_802967C0(Ctx* __restrict c) {
+  trace_call(0x802967C0u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802967C0
   c->r[0]=c->lr; // 802967C4
   cmps(c,0,(int32_t)c->r[4],0); // 802967C8
@@ -12288,6 +12392,7 @@ L_80296850:;
 
 // fn_80296890
 void f_80296890(Ctx* __restrict c) {
+  trace_call(0x80296890u);
   c->r[5]=0u+0x55550000u; // 80296890
   c->r[6]=R8(c->r[4]+0x000000BAu); // 80296894
   c->r[0]=c->r[5]+0x00005556u; // 80296898
@@ -12366,6 +12471,7 @@ L_80296958:;
 
 // fn_802969A0
 void f_802969A0(Ctx* __restrict c) {
+  trace_call(0x802969A0u);
   c->r[0]=0u+0xFFFFFFFFu; // 802969A0
   W32(c->r[3]+0x00000000u,c->r[0]); // 802969A4
   return; // 802969A8
@@ -12373,11 +12479,13 @@ void f_802969A0(Ctx* __restrict c) {
 
 // fn_802969B0
 void f_802969B0(Ctx* __restrict c) {
+  trace_call(0x802969B0u);
   return; // 802969B0
 }
 
 // fn_802969C0
 void f_802969C0(Ctx* __restrict c) {
+  trace_call(0x802969C0u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802969C0
   c->r[0]=c->lr; // 802969C4
   cmpu(c,0,c->r[4],0x00000011u); // 802969C8
@@ -12417,6 +12525,7 @@ L_80296A28:;
 
 // fn_80296A40
 void f_80296A40(Ctx* __restrict c) {
+  trace_call(0x80296A40u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80296A40
   c->r[0]=c->lr; // 80296A44
   cmpu(c,0,c->r[4],0x00000011u); // 80296A48
@@ -12460,17 +12569,20 @@ L_80296AB4:;
 
 // fn_80296AD0
 void f_80296AD0(Ctx* __restrict c) {
+  trace_call(0x80296AD0u);
   c->r[3]=0u+0x000000FFu; // 80296AD0
   return; // 80296AD4
 }
 
 // fn_80296AE0
 void f_80296AE0(Ctx* __restrict c) {
+  trace_call(0x80296AE0u);
   return; // 80296AE0
 }
 
 // fn_80296AF0
 void f_80296AF0(Ctx* __restrict c) {
+  trace_call(0x80296AF0u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80296AF0
   c->r[0]=c->lr; // 80296AF4
   W32(c->r[1]+0x00000024u,c->r[0]); // 80296AF8
@@ -12530,6 +12642,7 @@ L_80296B98:;
 
 // fn_80296BB0
 void f_80296BB0(Ctx* __restrict c) {
+  trace_call(0x80296BB0u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80296BB0
   c->r[0]=c->lr; // 80296BB4
   W32(c->r[1]+0x00000024u,c->r[0]); // 80296BB8
@@ -12592,6 +12705,7 @@ L_80296C64:;
 
 // fn_80296C80
 void f_80296C80(Ctx* __restrict c) {
+  trace_call(0x80296C80u);
   {uint32_t ea=c->r[1]+0xFFFFFF20u; W32(ea,c->r[1]); c->r[1]=ea;} // 80296C80
   c->r[0]=c->lr; // 80296C84
   W32(c->r[1]+0x000000E4u,c->r[0]); // 80296C88
@@ -12808,6 +12922,7 @@ L_80296F7C:;
 
 // fn_80296FA0
 void f_80296FA0(Ctx* __restrict c) {
+  trace_call(0x80296FA0u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80296FA0
   c->r[0]=c->lr; // 80296FA4
   W32(c->r[1]+0x00000024u,c->r[0]); // 80296FA8
@@ -12857,6 +12972,7 @@ L_8029702C:;
 
 // fn_80297050
 void f_80297050(Ctx* __restrict c) {
+  trace_call(0x80297050u);
   {uint32_t ea=c->r[1]+0xFFFFFFD0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80297050
   c->r[0]=c->lr; // 80297054
   W32(c->r[1]+0x00000034u,c->r[0]); // 80297058
@@ -12944,6 +13060,7 @@ L_8029716C:;
 
 // fn_80297180
 void f_80297180(Ctx* __restrict c) {
+  trace_call(0x80297180u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80297180
   c->r[0]=c->lr; // 80297184
   W32(c->r[1]+0x00000024u,c->r[0]); // 80297188
@@ -12996,6 +13113,7 @@ L_80297214:;
 
 // fn_80297230
 void f_80297230(Ctx* __restrict c) {
+  trace_call(0x80297230u);
   {uint32_t ea=c->r[1]+0xFFFFFFD0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80297230
   c->r[0]=c->lr; // 80297234
   W32(c->r[1]+0x00000034u,c->r[0]); // 80297238
@@ -13073,6 +13191,7 @@ L_8029731C:;
 
 // fn_80297340
 void f_80297340(Ctx* __restrict c) {
+  trace_call(0x80297340u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80297340
   c->r[0]=c->lr; // 80297344
   cmps(c,0,(int32_t)c->r[4],0); // 80297348
@@ -13114,6 +13233,7 @@ L_80297390:;
 
 // fn_802973D0
 void f_802973D0(Ctx* __restrict c) {
+  trace_call(0x802973D0u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802973D0
   c->r[0]=c->lr; // 802973D4
   W32(c->r[1]+0x00000024u,c->r[0]); // 802973D8
@@ -13164,6 +13284,7 @@ L_80297460:;
 
 // fn_80297480
 void f_80297480(Ctx* __restrict c) {
+  trace_call(0x80297480u);
   c->r[12]=R32(c->r[3]+0x00000000u); // 80297480
   c->r[5]=c->r[4]|c->r[4]; // 80297484
   c->r[4]=0u+0x00000000u; // 80297488
@@ -13174,6 +13295,7 @@ void f_80297480(Ctx* __restrict c) {
 
 // fn_802974A0
 void f_802974A0(Ctx* __restrict c) {
+  trace_call(0x802974A0u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802974A0
   c->r[0]=c->lr; // 802974A4
   W32(c->r[1]+0x00000014u,c->r[0]); // 802974A8
@@ -13203,6 +13325,7 @@ L_802974DC:;
 
 // fn_80297500
 void f_80297500(Ctx* __restrict c) {
+  trace_call(0x80297500u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80297500
   c->r[0]=c->lr; // 80297504
   cmps(c,0,(int32_t)c->r[4],0); // 80297508
@@ -13248,18 +13371,21 @@ L_8029756C:;
 
 // fn_802975A0
 void f_802975A0(Ctx* __restrict c) {
+  trace_call(0x802975A0u);
   c->r[3]=c->r[3]+0x0000001Cu; // 802975A0
   f_802A5BC0(c); return; // 802975A4
 }
 
 // fn_802975B0
 void f_802975B0(Ctx* __restrict c) {
+  trace_call(0x802975B0u);
   c->r[3]=c->r[3]+0x0000001Cu; // 802975B0
   f_802A5CD0(c); return; // 802975B4
 }
 
 // fn_802975C0
 void f_802975C0(Ctx* __restrict c) {
+  trace_call(0x802975C0u);
   {uint32_t ea=c->r[1]+0xFFFFFFD0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802975C0
   c->r[0]=c->lr; // 802975C4
   W32(c->r[1]+0x00000034u,c->r[0]); // 802975C8
@@ -13343,6 +13469,7 @@ L_802976C8:;
 
 // fn_802976E0
 void f_802976E0(Ctx* __restrict c) {
+  trace_call(0x802976E0u);
   {uint32_t ea=c->r[1]+0xFFFFFFD0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802976E0
   c->r[0]=c->lr; // 802976E4
   W32(c->r[1]+0x00000034u,c->r[0]); // 802976E8
@@ -13455,6 +13582,7 @@ L_80297838:;
 
 // fn_80297860
 void f_80297860(Ctx* __restrict c) {
+  trace_call(0x80297860u);
   c->r[4]=0u+0x55550000u; // 80297860
   c->r[5]=R8(c->r[3]+0x000000BAu); // 80297864
   c->r[0]=c->r[4]+0x00005556u; // 80297868
@@ -13515,6 +13643,7 @@ L_80297918:;
 
 // fn_80297930
 void f_80297930(Ctx* __restrict c) {
+  trace_call(0x80297930u);
   c->r[3]=R32(c->r[3]+0x00000028u); // 80297930
   c->r[0]=0u-c->r[3]; // 80297934
   c->r[0]=c->r[0]|c->r[3]; // 80297938
@@ -13524,12 +13653,14 @@ void f_80297930(Ctx* __restrict c) {
 
 // fn_80297950
 void f_80297950(Ctx* __restrict c) {
+  trace_call(0x80297950u);
   c->r[3]=R32(c->r[3]+0x00000028u); // 80297950
   return; // 80297954
 }
 
 // fn_80297960
 void f_80297960(Ctx* __restrict c) {
+  trace_call(0x80297960u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80297960
   c->r[0]=c->lr; // 80297964
   W32(c->r[1]+0x00000014u,c->r[0]); // 80297968
@@ -13580,12 +13711,14 @@ L_802979F4:;
 
 // fn_80297A10
 void f_80297A10(Ctx* __restrict c) {
+  trace_call(0x80297A10u);
   c->r[3]=c->r[13]+0xFFFFC540u; // 80297A10
   return; // 80297A14
 }
 
 // fn_80297A20
 void f_80297A20(Ctx* __restrict c) {
+  trace_call(0x80297A20u);
   c->r[0]=0u+0x00000000u; // 80297A20
   W32(c->r[13]+0xFFFFC540u,c->r[0]); // 80297A24
   return; // 80297A28
@@ -13593,6 +13726,7 @@ void f_80297A20(Ctx* __restrict c) {
 
 // fn_80297A30
 void f_80297A30(Ctx* __restrict c) {
+  trace_call(0x80297A30u);
   {uint32_t ea=c->r[1]+0xFFFFFFB0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80297A30
   c->r[0]=c->lr; // 80297A34
   W32(c->r[1]+0x00000054u,c->r[0]); // 80297A38
@@ -13691,6 +13825,7 @@ L_80297B64:;
 
 // fn_80297B90
 void f_80297B90(Ctx* __restrict c) {
+  trace_call(0x80297B90u);
   {uint32_t ea=c->r[1]+0xFFFFFFC0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80297B90
   c->r[0]=c->lr; // 80297B94
   W32(c->r[1]+0x00000044u,c->r[0]); // 80297B98
@@ -13762,6 +13897,7 @@ L_80297C68:;
 
 // fn_80297C90
 void f_80297C90(Ctx* __restrict c) {
+  trace_call(0x80297C90u);
   {uint32_t ea=c->r[1]+0xFFFFFFC0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80297C90
   c->r[0]=c->lr; // 80297C94
   W32(c->r[1]+0x00000044u,c->r[0]); // 80297C98
@@ -13849,6 +13985,7 @@ L_80297DA4:;
 
 // fn_80297DC0
 void f_80297DC0(Ctx* __restrict c) {
+  trace_call(0x80297DC0u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80297DC0
   c->r[0]=c->lr; // 80297DC4
   cmps(c,0,(int32_t)c->r[4],0); // 80297DC8
@@ -13884,6 +14021,7 @@ L_80297E08:;
 
 // fn_80297E40
 void f_80297E40(Ctx* __restrict c) {
+  trace_call(0x80297E40u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80297E40
   c->r[0]=c->lr; // 80297E44
   W32(c->r[1]+0x00000024u,c->r[0]); // 80297E48
@@ -13949,6 +14087,7 @@ L_80297F00:;
 
 // fn_80297F20
 void f_80297F20(Ctx* __restrict c) {
+  trace_call(0x80297F20u);
   {uint32_t ea=c->r[1]+0xFFFFFFC0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80297F20
   c->r[0]=c->lr; // 80297F24
   W32(c->r[1]+0x00000044u,c->r[0]); // 80297F28
@@ -14142,6 +14281,7 @@ L_80298170:;
 
 // fn_80298190
 void f_80298190(Ctx* __restrict c) {
+  trace_call(0x80298190u);
   {uint32_t ea=c->r[1]+0xFFFFFFC0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80298190
   c->r[0]=c->lr; // 80298194
   W32(c->r[1]+0x00000044u,c->r[0]); // 80298198
@@ -14225,6 +14365,7 @@ L_80298284:;
 
 // fn_802982A0
 void f_802982A0(Ctx* __restrict c) {
+  trace_call(0x802982A0u);
   {uint32_t ea=c->r[2]+0xFFFFAE48u; c->f[0]=c->ps1[0]=RF32(ea);} // 802982A0
   c->r[4]=0u+0x803C0000u; // 802982A4
   c->r[0]=0u+0x00000000u; // 802982A8
@@ -14243,6 +14384,7 @@ void f_802982A0(Ctx* __restrict c) {
 
 // fn_802982E0
 void f_802982E0(Ctx* __restrict c) {
+  trace_call(0x802982E0u);
   {uint32_t ea=c->r[1]+0xFFFFFFC0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802982E0
   c->r[0]=c->lr; // 802982E4
   W32(c->r[1]+0x00000044u,c->r[0]); // 802982E8
@@ -14347,6 +14489,7 @@ L_80298434:;
 
 // fn_80298450
 void f_80298450(Ctx* __restrict c) {
+  trace_call(0x80298450u);
   {uint32_t ea=c->r[1]+0xFFFFFFA0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80298450
   c->r[0]=c->lr; // 80298454
   W32(c->r[1]+0x00000064u,c->r[0]); // 80298458
@@ -14668,6 +14811,7 @@ L_8029888C:;
 
 // fn_802988B0
 void f_802988B0(Ctx* __restrict c) {
+  trace_call(0x802988B0u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802988B0
   c->r[0]=c->lr; // 802988B4
   W32(c->r[1]+0x00000024u,c->r[0]); // 802988B8
@@ -14740,6 +14884,7 @@ L_80298988:;
 
 // fn_802989B0
 void f_802989B0(Ctx* __restrict c) {
+  trace_call(0x802989B0u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802989B0
   c->r[0]=c->lr; // 802989B4
   W32(c->r[1]+0x00000024u,c->r[0]); // 802989B8
@@ -14766,6 +14911,7 @@ void f_802989B0(Ctx* __restrict c) {
 
 // fn_80298A10
 void f_80298A10(Ctx* __restrict c) {
+  trace_call(0x80298A10u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80298A10
   c->r[0]=c->lr; // 80298A14
   W32(c->r[1]+0x00000024u,c->r[0]); // 80298A18
@@ -14821,6 +14967,7 @@ void f_80298AA0(Ctx* __restrict c) {
 
 // fn_80298AD0
 void f_80298AD0(Ctx* __restrict c) {
+  trace_call(0x80298AD0u);
   c->r[3]=R32(c->r[3]+0x00000010u); // 80298AD0
   cmps(c,0,(int32_t)c->r[3],0); // 80298AD4
   if (crb(c,2)) return; // 80298AD8
@@ -14834,6 +14981,7 @@ void f_80298AD0(Ctx* __restrict c) {
 
 // fn_80298B00
 void f_80298B00(Ctx* __restrict c) {
+  trace_call(0x80298B00u);
   c->r[12]=R32(c->r[3]+0x00000000u); // 80298B00
   c->r[4]=0u+0x00000000u; // 80298B04
   c->r[12]=R32(c->r[12]+0x00000020u); // 80298B08
@@ -14843,6 +14991,7 @@ void f_80298B00(Ctx* __restrict c) {
 
 // fn_80298B20
 void f_80298B20(Ctx* __restrict c) {
+  trace_call(0x80298B20u);
   {uint32_t ea=c->r[1]+0xFFFFFF90u; W32(ea,c->r[1]); c->r[1]=ea;} // 80298B20
   c->r[0]=c->lr; // 80298B24
   W32(c->r[1]+0x00000074u,c->r[0]); // 80298B28
@@ -15100,6 +15249,7 @@ L_80298E98:;
 
 // fn_80298EB0
 void f_80298EB0(Ctx* __restrict c) {
+  trace_call(0x80298EB0u);
   c->r[3]=R32(c->r[3]+0x00000010u); // 80298EB0
   cmps(c,0,(int32_t)c->r[3],0); // 80298EB4
   if (crb(c,2)) return; // 80298EB8
@@ -15113,6 +15263,7 @@ void f_80298EB0(Ctx* __restrict c) {
 
 // fn_80298EE0
 void f_80298EE0(Ctx* __restrict c) {
+  trace_call(0x80298EE0u);
   c->r[3]=R32(c->r[3]+0x00000010u); // 80298EE0
   cmps(c,0,(int32_t)c->r[3],0); // 80298EE4
   if (crb(c,2)) return; // 80298EE8
@@ -15125,6 +15276,7 @@ void f_80298EE0(Ctx* __restrict c) {
 
 // fn_80298F00
 void f_80298F00(Ctx* __restrict c) {
+  trace_call(0x80298F00u);
   c->r[3]=R32(c->r[3]+0x00000010u); // 80298F00
   cmps(c,0,(int32_t)c->r[3],0); // 80298F04
   if (crb(c,2)) return; // 80298F08
@@ -15137,6 +15289,7 @@ void f_80298F00(Ctx* __restrict c) {
 
 // fn_80298F20
 void f_80298F20(Ctx* __restrict c) {
+  trace_call(0x80298F20u);
   c->r[3]=R32(c->r[3]+0x00000010u); // 80298F20
   cmps(c,0,(int32_t)c->r[3],0); // 80298F24
   if (crb(c,2)) return; // 80298F28
@@ -15149,6 +15302,7 @@ void f_80298F20(Ctx* __restrict c) {
 
 // fn_80298F40
 void f_80298F40(Ctx* __restrict c) {
+  trace_call(0x80298F40u);
   {uint32_t ea=c->r[4]+0x0000001Cu; c->f[4]=c->ps1[4]=RF32(ea);} // 80298F40
   {uint32_t ea=c->r[4]+0x00000018u; c->f[1]=c->ps1[1]=RF32(ea);} // 80298F44
   c->f[3]=-c->f[4]; // 80298F48
@@ -15167,6 +15321,7 @@ void f_80298F40(Ctx* __restrict c) {
 
 // fn_80298F80
 void f_80298F80(Ctx* __restrict c) {
+  trace_call(0x80298F80u);
   {uint32_t ea=c->r[1]+0xFFFFFFC0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80298F80
   c->r[0]=c->lr; // 80298F84
   W32(c->r[1]+0x00000044u,c->r[0]); // 80298F88
@@ -15360,6 +15515,7 @@ L_802991D0:;
 
 // fn_802991F0
 void f_802991F0(Ctx* __restrict c) {
+  trace_call(0x802991F0u);
   {uint32_t ea=c->r[1]+0xFFFFFFB0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802991F0
   c->r[0]=c->lr; // 802991F4
   W32(c->r[1]+0x00000054u,c->r[0]); // 802991F8
@@ -15582,6 +15738,7 @@ L_802994E8:;
 
 // fn_80299500
 void f_80299500(Ctx* __restrict c) {
+  trace_call(0x80299500u);
   c->r[0]=0u+0xFFFFFFFFu; // 80299500
   W32(c->r[3]+0x00000000u,c->r[0]); // 80299504
   return; // 80299508
@@ -15589,6 +15746,7 @@ void f_80299500(Ctx* __restrict c) {
 
 // fn_80299510
 void f_80299510(Ctx* __restrict c) {
+  trace_call(0x80299510u);
   {uint32_t ea=c->r[1]+0xFFFFFFD0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80299510
   c->r[0]=c->lr; // 80299514
   W32(c->r[1]+0x00000034u,c->r[0]); // 80299518
@@ -15705,6 +15863,7 @@ L_8029968C:;
 
 // fn_802996C0
 void f_802996C0(Ctx* __restrict c) {
+  trace_call(0x802996C0u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802996C0
   c->r[0]=c->lr; // 802996C4
   cmps(c,0,(int32_t)c->r[3],0); // 802996C8
@@ -15766,6 +15925,7 @@ L_80299778:;
 
 // fn_802997A0
 void f_802997A0(Ctx* __restrict c) {
+  trace_call(0x802997A0u);
   {uint32_t ea=c->r[1]+0xFFFFFFD0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802997A0
   c->r[0]=c->lr; // 802997A4
   W32(c->r[1]+0x00000034u,c->r[0]); // 802997A8
@@ -15920,6 +16080,7 @@ L_802999C0:;
 
 // fn_802999E0
 void f_802999E0(Ctx* __restrict c) {
+  trace_call(0x802999E0u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802999E0
   c->r[0]=c->lr; // 802999E4
   cmpu(c,0,c->r[5],0x00000004u); // 802999E8
@@ -15954,6 +16115,7 @@ L_80299A28:;
 
 // fn_80299A60
 void f_80299A60(Ctx* __restrict c) {
+  trace_call(0x80299A60u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80299A60
   c->r[0]=c->lr; // 80299A64
   cmpu(c,0,c->r[4],0x00000004u); // 80299A68
@@ -15994,6 +16156,7 @@ L_80299AA8:;
 
 // fn_80299AF0
 void f_80299AF0(Ctx* __restrict c) {
+  trace_call(0x80299AF0u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80299AF0
   c->r[0]=c->lr; // 80299AF4
   cmpu(c,0,c->r[4],0x00000010u); // 80299AF8
@@ -16026,6 +16189,7 @@ L_80299B30:;
 
 // fn_80299B60
 void f_80299B60(Ctx* __restrict c) {
+  trace_call(0x80299B60u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80299B60
   c->r[0]=c->lr; // 80299B64
   cmpu(c,0,c->r[4],0x00000010u); // 80299B68
@@ -16061,6 +16225,7 @@ L_80299BA8:;
 
 // fn_80299BE0
 void f_80299BE0(Ctx* __restrict c) {
+  trace_call(0x80299BE0u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80299BE0
   c->r[0]=c->lr; // 80299BE4
   W32(c->r[1]+0x00000024u,c->r[0]); // 80299BE8
@@ -16123,12 +16288,14 @@ L_80299C9C:;
 
 // fn_80299CC0
 void f_80299CC0(Ctx* __restrict c) {
+  trace_call(0x80299CC0u);
   c->r[3]=c->r[13]+0xFFFFC550u; // 80299CC0
   return; // 80299CC4
 }
 
 // fn_80299CD0
 void f_80299CD0(Ctx* __restrict c) {
+  trace_call(0x80299CD0u);
   c->r[0]=c->r[13]+0xFFFFC540u; // 80299CD0
   W32(c->r[13]+0xFFFFC550u,c->r[0]); // 80299CD4
   return; // 80299CD8
@@ -16136,6 +16303,7 @@ void f_80299CD0(Ctx* __restrict c) {
 
 // fn_80299CE0
 void f_80299CE0(Ctx* __restrict c) {
+  trace_call(0x80299CE0u);
   {uint32_t ea=c->r[1]+0xFFFFFFC0u; W32(ea,c->r[1]); c->r[1]=ea;} // 80299CE0
   c->r[0]=c->lr; // 80299CE4
   W32(c->r[1]+0x00000044u,c->r[0]); // 80299CE8
@@ -16399,6 +16567,7 @@ L_8029A090:;
 
 // fn_8029A0B0
 void f_8029A0B0(Ctx* __restrict c) {
+  trace_call(0x8029A0B0u);
   {uint32_t ea=c->r[1]+0xFFFFFFC0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8029A0B0
   c->r[0]=c->lr; // 8029A0B4
   cmps(c,0,(int32_t)c->r[3],0); // 8029A0B8
@@ -16525,6 +16694,7 @@ L_8029A258:;
 
 // fn_8029A280
 void f_8029A280(Ctx* __restrict c) {
+  trace_call(0x8029A280u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8029A280
   c->r[0]=c->lr; // 8029A284
   cmpu(c,0,c->r[5],0x00000004u); // 8029A288
@@ -16570,6 +16740,7 @@ L_8029A2F0:;
 
 // fn_8029A320
 void f_8029A320(Ctx* __restrict c) {
+  trace_call(0x8029A320u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8029A320
   c->r[0]=c->lr; // 8029A324
   cmpu(c,0,c->r[4],0x00000004u); // 8029A328
@@ -16623,6 +16794,7 @@ L_8029A398:;
 
 // fn_8029A3E0
 void f_8029A3E0(Ctx* __restrict c) {
+  trace_call(0x8029A3E0u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8029A3E0
   c->r[0]=c->lr; // 8029A3E4
   cmpu(c,0,c->r[4],0x00000010u); // 8029A3E8
@@ -16655,6 +16827,7 @@ L_8029A420:;
 
 // fn_8029A450
 void f_8029A450(Ctx* __restrict c) {
+  trace_call(0x8029A450u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8029A450
   c->r[0]=c->lr; // 8029A454
   cmpu(c,0,c->r[4],0x00000010u); // 8029A458
@@ -16690,6 +16863,7 @@ L_8029A498:;
 
 // fn_8029A4D0
 void f_8029A4D0(Ctx* __restrict c) {
+  trace_call(0x8029A4D0u);
   {uint32_t ea=c->r[1]+0xFFFFFF80u; W32(ea,c->r[1]); c->r[1]=ea;} // 8029A4D0
   c->r[0]=c->lr; // 8029A4D4
   W32(c->r[1]+0x00000084u,c->r[0]); // 8029A4D8
@@ -16727,6 +16901,7 @@ L_8029A514:;
 
 // fn_8029A550
 void f_8029A550(Ctx* __restrict c) {
+  trace_call(0x8029A550u);
   {uint32_t ea=c->r[1]+0xFFFFFE20u; W32(ea,c->r[1]); c->r[1]=ea;} // 8029A550
   c->r[0]=c->lr; // 8029A554
   W32(c->r[1]+0x000001E4u,c->r[0]); // 8029A558
@@ -17534,6 +17709,7 @@ L_8029B0A4:;
 
 // fn_8029B0E0
 void f_8029B0E0(Ctx* __restrict c) {
+  trace_call(0x8029B0E0u);
   {uint32_t ea=c->r[1]+0xFFFFFF00u; W32(ea,c->r[1]); c->r[1]=ea;} // 8029B0E0
   c->r[0]=c->lr; // 8029B0E4
   W32(c->r[1]+0x00000104u,c->r[0]); // 8029B0E8
@@ -19005,6 +19181,7 @@ L_8029C56C:;
 
 // fn_8029C5B0
 void f_8029C5B0(Ctx* __restrict c) {
+  trace_call(0x8029C5B0u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8029C5B0
   c->r[0]=c->lr; // 8029C5B4
   cmps(c,0,(int32_t)c->r[4],0); // 8029C5B8
@@ -19089,6 +19266,7 @@ L_8029C6B4:;
 
 // fn_8029C6E0
 void f_8029C6E0(Ctx* __restrict c) {
+  trace_call(0x8029C6E0u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8029C6E0
   c->r[0]=c->lr; // 8029C6E4
   W32(c->r[1]+0x00000014u,c->r[0]); // 8029C6E8
@@ -19114,6 +19292,7 @@ L_8029C718:;
 
 // fn_8029C730
 void f_8029C730(Ctx* __restrict c) {
+  trace_call(0x8029C730u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8029C730
   c->r[0]=c->lr; // 8029C734
   W32(c->r[1]+0x00000024u,c->r[0]); // 8029C738
@@ -19206,6 +19385,7 @@ L_8029C858:;
 
 // fn_8029C870
 void f_8029C870(Ctx* __restrict c) {
+  trace_call(0x8029C870u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8029C870
   c->r[0]=c->lr; // 8029C874
   W32(c->r[1]+0x00000024u,c->r[0]); // 8029C878
@@ -19336,6 +19516,7 @@ L_8029C9EC:;
 
 // fn_8029CA40
 void f_8029CA40(Ctx* __restrict c) {
+  trace_call(0x8029CA40u);
   {uint32_t ea=c->r[1]+0xFFFFFF40u; W32(ea,c->r[1]); c->r[1]=ea;} // 8029CA40
   c->r[0]=c->lr; // 8029CA44
   W32(c->r[1]+0x000000C4u,c->r[0]); // 8029CA48
@@ -20053,6 +20234,7 @@ L_8029D420:;
 
 // fn_8029D480
 void f_8029D480(Ctx* __restrict c) {
+  trace_call(0x8029D480u);
   {uint32_t ea=c->r[1]+0xFFFFFFA0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8029D480
   c->r[0]=c->lr; // 8029D484
   W32(c->r[1]+0x00000064u,c->r[0]); // 8029D488
@@ -20432,12 +20614,14 @@ L_8029D980:;
 
 // fn_8029D9B0
 void f_8029D9B0(Ctx* __restrict c) {
+  trace_call(0x8029D9B0u);
   c->r[3]=c->r[13]+0xFFFFC558u; // 8029D9B0
   return; // 8029D9B4
 }
 
 // fn_8029D9C0
 void f_8029D9C0(Ctx* __restrict c) {
+  trace_call(0x8029D9C0u);
   c->r[0]=c->r[13]+0xFFFFC540u; // 8029D9C0
   W32(c->r[13]+0xFFFFC558u,c->r[0]); // 8029D9C4
   return; // 8029D9C8
@@ -20445,6 +20629,7 @@ void f_8029D9C0(Ctx* __restrict c) {
 
 // fn_8029D9D0
 void f_8029D9D0(Ctx* __restrict c) {
+  trace_call(0x8029D9D0u);
   {uint32_t ea=c->r[1]+0xFFFFFFA0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8029D9D0
   c->r[0]=c->lr; // 8029D9D4
   W32(c->r[1]+0x00000064u,c->r[0]); // 8029D9D8
@@ -20675,6 +20860,7 @@ L_8029DCF0:;
 
 // fn_8029DD10
 void f_8029DD10(Ctx* __restrict c) {
+  trace_call(0x8029DD10u);
   {uint32_t ea=c->r[1]+0xFFFFFFD0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8029DD10
   c->r[0]=c->lr; // 8029DD14
   W32(c->r[1]+0x00000034u,c->r[0]); // 8029DD18
@@ -20768,6 +20954,7 @@ L_8029DE38:;
 
 // fn_8029DE60
 void f_8029DE60(Ctx* __restrict c) {
+  trace_call(0x8029DE60u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8029DE60
   c->r[0]=c->lr; // 8029DE64
   W32(c->r[1]+0x00000024u,c->r[0]); // 8029DE68
@@ -20853,6 +21040,7 @@ L_8029DF64:;
 
 // fn_8029DF80
 void f_8029DF80(Ctx* __restrict c) {
+  trace_call(0x8029DF80u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8029DF80
   c->r[0]=c->lr; // 8029DF84
   cmpu(c,0,c->r[5],0x00000004u); // 8029DF88
@@ -20887,6 +21075,7 @@ L_8029DFC8:;
 
 // fn_8029E000
 void f_8029E000(Ctx* __restrict c) {
+  trace_call(0x8029E000u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8029E000
   c->r[0]=c->lr; // 8029E004
   cmpu(c,0,c->r[4],0x00000004u); // 8029E008
@@ -20927,6 +21116,7 @@ L_8029E048:;
 
 // fn_8029E090
 void f_8029E090(Ctx* __restrict c) {
+  trace_call(0x8029E090u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8029E090
   c->r[0]=c->lr; // 8029E094
   cmpu(c,0,c->r[4],0x00000010u); // 8029E098
@@ -20959,6 +21149,7 @@ L_8029E0D0:;
 
 // fn_8029E100
 void f_8029E100(Ctx* __restrict c) {
+  trace_call(0x8029E100u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8029E100
   c->r[0]=c->lr; // 8029E104
   cmpu(c,0,c->r[4],0x00000010u); // 8029E108
@@ -20994,6 +21185,7 @@ L_8029E148:;
 
 // fn_8029E180
 void f_8029E180(Ctx* __restrict c) {
+  trace_call(0x8029E180u);
   {uint32_t ea=c->r[1]+0xFFFFFFA0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8029E180
   c->r[0]=c->lr; // 8029E184
   W32(c->r[1]+0x00000064u,c->r[0]); // 8029E188
@@ -21123,6 +21315,7 @@ L_8029E340:;
 
 // fn_8029E360
 void f_8029E360(Ctx* __restrict c) {
+  trace_call(0x8029E360u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8029E360
   c->r[0]=c->lr; // 8029E364
   W32(c->r[1]+0x00000024u,c->r[0]); // 8029E368
@@ -21167,6 +21360,7 @@ L_8029E3D4:;
 
 // fn_8029E3F0
 void f_8029E3F0(Ctx* __restrict c) {
+  trace_call(0x8029E3F0u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8029E3F0
   c->r[0]=c->lr; // 8029E3F4
   W32(c->r[1]+0x00000024u,c->r[0]); // 8029E3F8
@@ -21209,6 +21403,7 @@ L_8029E448:;
 
 // fn_8029E480
 void f_8029E480(Ctx* __restrict c) {
+  trace_call(0x8029E480u);
   {uint32_t ea=c->r[1]+0xFFFFFFD0u; W32(ea,c->r[1]); c->r[1]=ea;} // 8029E480
   c->r[0]=c->lr; // 8029E484
   W32(c->r[1]+0x00000034u,c->r[0]); // 8029E488
@@ -21282,6 +21477,7 @@ L_8029E4EC:;
 
 // fn_8029E590
 void f_8029E590(Ctx* __restrict c) {
+  trace_call(0x8029E590u);
   {uint32_t ea=c->r[1]+0xFFFFFF30u; W32(ea,c->r[1]); c->r[1]=ea;} // 8029E590
   c->r[0]=c->lr; // 8029E594
   W32(c->r[1]+0x000000D4u,c->r[0]); // 8029E598
@@ -21679,6 +21875,7 @@ L_8029EB80:;
 
 // fn_8029EBA0
 void f_8029EBA0(Ctx* __restrict c) {
+  trace_call(0x8029EBA0u);
   {uint32_t ea=c->r[1]+0xFFFFFF20u; W32(ea,c->r[1]); c->r[1]=ea;} // 8029EBA0
   c->r[0]=c->lr; // 8029EBA4
   W32(c->r[1]+0x000000E4u,c->r[0]); // 8029EBA8
@@ -22192,6 +22389,7 @@ L_8029F34C:;
 
 // fn_8029F370
 void f_8029F370(Ctx* __restrict c) {
+  trace_call(0x8029F370u);
   {uint32_t ea=c->r[1]+0xFFFFFE90u; W32(ea,c->r[1]); c->r[1]=ea;} // 8029F370
   c->r[0]=c->lr; // 8029F374
   W32(c->r[1]+0x00000174u,c->r[0]); // 8029F378
@@ -23207,6 +23405,7 @@ void f_802A02C0(Ctx* __restrict c) {
 
 // fn_802A02D0
 void f_802A02D0(Ctx* __restrict c) {
+  trace_call(0x802A02D0u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802A02D0
   c->r[0]=c->lr; // 802A02D4
   W32(c->r[1]+0x00000014u,c->r[0]); // 802A02D8
@@ -23262,6 +23461,7 @@ L_802A0378:;
 
 // fn_802A0390
 void f_802A0390(Ctx* __restrict c) {
+  trace_call(0x802A0390u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802A0390
   c->r[0]=c->lr; // 802A0394
   cmpu(c,0,c->r[4],0x00000008u); // 802A0398
@@ -23300,6 +23500,7 @@ L_802A03F4:;
 
 // fn_802A0410
 void f_802A0410(Ctx* __restrict c) {
+  trace_call(0x802A0410u);
   c->r[12]=R32(c->r[3]+0x00000000u); // 802A0410
   c->r[12]=R32(c->r[12]+0x00000068u); // 802A0414
   c->ctr=c->r[12]; // 802A0418
@@ -23308,12 +23509,14 @@ void f_802A0410(Ctx* __restrict c) {
 
 // fn_802A0420
 void f_802A0420(Ctx* __restrict c) {
+  trace_call(0x802A0420u);
   c->r[3]=c->r[13]+0xFFFFC560u; // 802A0420
   return; // 802A0424
 }
 
 // fn_802A0430
 void f_802A0430(Ctx* __restrict c) {
+  trace_call(0x802A0430u);
   c->r[0]=c->r[13]+0xFFFFC540u; // 802A0430
   W32(c->r[13]+0xFFFFC560u,c->r[0]); // 802A0434
   return; // 802A0438
@@ -23321,6 +23524,7 @@ void f_802A0430(Ctx* __restrict c) {
 
 // fn_802A0440
 void f_802A0440(Ctx* __restrict c) {
+  trace_call(0x802A0440u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802A0440
   c->r[0]=c->lr; // 802A0444
   W32(c->r[1]+0x00000014u,c->r[0]); // 802A0448
@@ -23340,6 +23544,7 @@ void f_802A0440(Ctx* __restrict c) {
 
 // fn_802A0480
 void f_802A0480(Ctx* __restrict c) {
+  trace_call(0x802A0480u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802A0480
   c->r[0]=c->lr; // 802A0484
   cmps(c,0,(int32_t)c->r[3],0); // 802A0488
@@ -23367,6 +23572,7 @@ L_802A04BC:;
 
 // fn_802A04E0
 void f_802A04E0(Ctx* __restrict c) {
+  trace_call(0x802A04E0u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802A04E0
   c->r[0]=c->lr; // 802A04E4
   W32(c->r[1]+0x00000024u,c->r[0]); // 802A04E8
@@ -23400,12 +23606,14 @@ L_802A053C:;
 
 // fn_802A0550
 void f_802A0550(Ctx* __restrict c) {
+  trace_call(0x802A0550u);
   c->r[3]=c->r[13]+0xFFFFC568u; // 802A0550
   return; // 802A0554
 }
 
 // fn_802A0560
 void f_802A0560(Ctx* __restrict c) {
+  trace_call(0x802A0560u);
   c->r[0]=c->r[13]+0xFFFFC540u; // 802A0560
   W32(c->r[13]+0xFFFFC568u,c->r[0]); // 802A0564
   return; // 802A0568
@@ -23413,6 +23621,7 @@ void f_802A0560(Ctx* __restrict c) {
 
 // fn_802A0570
 void f_802A0570(Ctx* __restrict c) {
+  trace_call(0x802A0570u);
   {uint32_t ea=c->r[1]+0xFFFFFFD0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802A0570
   c->r[0]=c->lr; // 802A0574
   {uint32_t ea=c->r[2]+0xFFFFAE88u; c->f[2]=c->ps1[2]=RF32(ea);} // 802A0578
@@ -23483,6 +23692,7 @@ void f_802A0570(Ctx* __restrict c) {
 
 // fn_802A0680
 void f_802A0680(Ctx* __restrict c) {
+  trace_call(0x802A0680u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802A0680
   c->r[0]=c->lr; // 802A0684
   {uint32_t ea=c->r[4]+0x00000000u; c->f[2]=c->ps1[2]=RF32(ea);} // 802A0688
@@ -23620,6 +23830,7 @@ L_802A084C:;
 
 // fn_802A0880
 void f_802A0880(Ctx* __restrict c) {
+  trace_call(0x802A0880u);
   {uint32_t ea=c->r[4]+0x00000000u; c->f[1]=c->ps1[1]=RF32(ea);} // 802A0880
   {uint32_t ea=c->r[4]+0x00000004u; c->f[0]=c->ps1[0]=RF32(ea);} // 802A0884
   {uint32_t ea=c->r[3]+0x00000000u; WF32(ea,c->f[1]);} // 802A0888
@@ -23629,6 +23840,7 @@ void f_802A0880(Ctx* __restrict c) {
 
 // fn_802A08A0
 void f_802A08A0(Ctx* __restrict c) {
+  trace_call(0x802A08A0u);
   c->r[4]=c->r[3]+0x00000004u; // 802A08A0
   c->r[0]=0u+0x00000000u; // 802A08A4
   W32(c->r[3]+0x00000000u,c->r[0]); // 802A08A8
@@ -23639,6 +23851,7 @@ void f_802A08A0(Ctx* __restrict c) {
 
 // fn_802A08C0
 void f_802A08C0(Ctx* __restrict c) {
+  trace_call(0x802A08C0u);
   {uint32_t ea=c->r[1]+0xFFFFFF80u; W32(ea,c->r[1]); c->r[1]=ea;} // 802A08C0
   c->r[0]=c->lr; // 802A08C4
   W32(c->r[1]+0x00000084u,c->r[0]); // 802A08C8
@@ -24185,6 +24398,7 @@ L_802A1090:;
 
 // fn_802A10B0
 void f_802A10B0(Ctx* __restrict c) {
+  trace_call(0x802A10B0u);
   c->r[7]=(uint32_t)(int32_t)(int16_t)R16(c->r[4]+0x00000000u); // 802A10B0
   c->r[6]=(uint32_t)(int32_t)(int16_t)R16(c->r[4]+0x00000002u); // 802A10B4
   c->r[5]=(uint32_t)(int32_t)(int16_t)R16(c->r[4]+0x00000004u); // 802A10B8
@@ -24198,6 +24412,7 @@ void f_802A10B0(Ctx* __restrict c) {
 
 // fn_802A10E0
 void f_802A10E0(Ctx* __restrict c) {
+  trace_call(0x802A10E0u);
   c->r[0]=R32(c->r[4]+0x00000000u); // 802A10E0
   W32(c->r[3]+0x00000000u,c->r[0]); // 802A10E4
   return; // 802A10E8
@@ -24205,6 +24420,7 @@ void f_802A10E0(Ctx* __restrict c) {
 
 // fn_802A10F0
 void f_802A10F0(Ctx* __restrict c) {
+  trace_call(0x802A10F0u);
   c->r[0]=R32(c->r[3]+0x00000000u); // 802A10F0
   c->r[3]=rotl(c->r[0],0)&0x0000000Fu; // 802A10F4
   return; // 802A10F8
@@ -24212,6 +24428,7 @@ void f_802A10F0(Ctx* __restrict c) {
 
 // fn_802A1100
 void f_802A1100(Ctx* __restrict c) {
+  trace_call(0x802A1100u);
   c->r[0]=R32(c->r[3]+0x00000000u); // 802A1100
   c->r[3]=rotl(c->r[0],28)&0x0000000Fu; // 802A1104
   return; // 802A1108
@@ -24219,6 +24436,7 @@ void f_802A1100(Ctx* __restrict c) {
 
 // fn_802A1110
 void f_802A1110(Ctx* __restrict c) {
+  trace_call(0x802A1110u);
   c->r[0]=R32(c->r[3]+0x00000000u); // 802A1110
   c->r[3]=rotl(c->r[0],24)&0x0000000Fu; // 802A1114
   return; // 802A1118
@@ -24226,6 +24444,7 @@ void f_802A1110(Ctx* __restrict c) {
 
 // fn_802A1120
 void f_802A1120(Ctx* __restrict c) {
+  trace_call(0x802A1120u);
   c->r[0]=R32(c->r[3]+0x00000000u); // 802A1120
   c->r[3]=rotl(c->r[0],7)&0x00000001u; // 802A1124
   return; // 802A1128
@@ -24233,6 +24452,7 @@ void f_802A1120(Ctx* __restrict c) {
 
 // fn_802A1130
 void f_802A1130(Ctx* __restrict c) {
+  trace_call(0x802A1130u);
   c->r[0]=R32(c->r[3]+0x00000000u); // 802A1130
   c->r[3]=rotl(c->r[0],5)&0x00000001u; // 802A1134
   return; // 802A1138
@@ -24240,6 +24460,7 @@ void f_802A1130(Ctx* __restrict c) {
 
 // fn_802A1140
 void f_802A1140(Ctx* __restrict c) {
+  trace_call(0x802A1140u);
   c->r[0]=R32(c->r[3]+0x00000000u); // 802A1140
   c->r[3]=rotl(c->r[0],20)&0x00000001u; // 802A1144
   return; // 802A1148
@@ -24247,6 +24468,7 @@ void f_802A1140(Ctx* __restrict c) {
 
 // fn_802A1150
 void f_802A1150(Ctx* __restrict c) {
+  trace_call(0x802A1150u);
   c->r[0]=R32(c->r[3]+0x00000000u); // 802A1150
   c->r[3]=rotl(c->r[0],9)&0x00000001u; // 802A1154
   return; // 802A1158
@@ -24254,6 +24476,7 @@ void f_802A1150(Ctx* __restrict c) {
 
 // fn_802A1160
 void f_802A1160(Ctx* __restrict c) {
+  trace_call(0x802A1160u);
   c->r[0]=R32(c->r[3]+0x00000000u); // 802A1160
   c->r[3]=rotl(c->r[0],8)&0x00000001u; // 802A1164
   return; // 802A1168
@@ -24261,6 +24484,7 @@ void f_802A1160(Ctx* __restrict c) {
 
 // fn_802A1170
 void f_802A1170(Ctx* __restrict c) {
+  trace_call(0x802A1170u);
   c->r[0]=R32(c->r[3]+0x00000000u); // 802A1170
   c->r[3]=rotl(c->r[0],19)&0x00000003u; // 802A1174
   return; // 802A1178
@@ -24268,6 +24492,7 @@ void f_802A1170(Ctx* __restrict c) {
 
 // fn_802A1180
 void f_802A1180(Ctx* __restrict c) {
+  trace_call(0x802A1180u);
   c->r[0]=R32(c->r[3]+0x00000000u); // 802A1180
   c->r[3]=rotl(c->r[0],17)&0x00000007u; // 802A1184
   return; // 802A1188
@@ -24275,6 +24500,7 @@ void f_802A1180(Ctx* __restrict c) {
 
 // fn_802A1190
 void f_802A1190(Ctx* __restrict c) {
+  trace_call(0x802A1190u);
   c->r[0]=R32(c->r[3]+0x00000000u); // 802A1190
   c->r[3]=rotl(c->r[0],14)&0x0000001Fu; // 802A1194
   return; // 802A1198
@@ -24282,6 +24508,7 @@ void f_802A1190(Ctx* __restrict c) {
 
 // fn_802A11A0
 void f_802A11A0(Ctx* __restrict c) {
+  trace_call(0x802A11A0u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802A11A0
   c->r[0]=c->lr; // 802A11A4
   cmps(c,0,(int32_t)c->r[4],3); // 802A11A8
@@ -24326,6 +24553,7 @@ L_802A120C:;
 
 // fn_802A1240
 void f_802A1240(Ctx* __restrict c) {
+  trace_call(0x802A1240u);
   c->r[0]=R8(c->r[3]+0x00000002u); // 802A1240
   c->r[3]=rotl(c->r[0],0)&0x00000003u; // 802A1244
   return; // 802A1248
@@ -24333,6 +24561,7 @@ void f_802A1240(Ctx* __restrict c) {
 
 // fn_802A1250
 void f_802A1250(Ctx* __restrict c) {
+  trace_call(0x802A1250u);
   c->r[0]=R8(c->r[3]+0x00000003u); // 802A1250
   c->r[3]=rotl(c->r[0],0)&0x00000003u; // 802A1254
   return; // 802A1258
@@ -24340,6 +24569,7 @@ void f_802A1250(Ctx* __restrict c) {
 
 // fn_802A1260
 void f_802A1260(Ctx* __restrict c) {
+  trace_call(0x802A1260u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802A1260
   c->r[0]=c->lr; // 802A1264
   cmps(c,0,(int32_t)c->r[4],5); // 802A1268
@@ -24384,6 +24614,7 @@ L_802A12CC:;
 
 // fn_802A1300
 void f_802A1300(Ctx* __restrict c) {
+  trace_call(0x802A1300u);
   c->r[0]=R8(c->r[3]+0x00000002u); // 802A1300
   c->r[3]=rotl(c->r[0],30)&0x00000007u; // 802A1304
   c->r[0]=c->r[3]+0x00000001u; // 802A1308
@@ -24393,6 +24624,7 @@ void f_802A1300(Ctx* __restrict c) {
 
 // fn_802A1320
 void f_802A1320(Ctx* __restrict c) {
+  trace_call(0x802A1320u);
   c->r[0]=R8(c->r[3]+0x00000003u); // 802A1320
   c->r[3]=rotl(c->r[0],30)&0x00000001u; // 802A1324
   c->r[0]=c->r[3]+0x00000001u; // 802A1328
@@ -24402,6 +24634,7 @@ void f_802A1320(Ctx* __restrict c) {
 
 // fn_802A1340
 void f_802A1340(Ctx* __restrict c) {
+  trace_call(0x802A1340u);
   c->r[7]=R8(c->r[4]+0x00000000u); // 802A1340
   c->r[6]=R8(c->r[4]+0x00000001u); // 802A1344
   c->r[5]=R8(c->r[4]+0x00000002u); // 802A1348
@@ -24415,6 +24648,7 @@ void f_802A1340(Ctx* __restrict c) {
 
 // fn_802A1370
 void f_802A1370(Ctx* __restrict c) {
+  trace_call(0x802A1370u);
   c->r[0]=R32(c->r[3]+0x00000038u); // 802A1370
   c->r[3]=rotl(c->r[0],24)&0x00000001u; // 802A1374
   return; // 802A1378
@@ -24422,6 +24656,7 @@ void f_802A1370(Ctx* __restrict c) {
 
 // fn_802A1380
 void f_802A1380(Ctx* __restrict c) {
+  trace_call(0x802A1380u);
   c->r[7]=R8(c->r[4]+0x00000000u); // 802A1380
   c->r[6]=R8(c->r[4]+0x00000001u); // 802A1384
   c->r[5]=R8(c->r[4]+0x00000002u); // 802A1388
@@ -24435,6 +24670,7 @@ void f_802A1380(Ctx* __restrict c) {
 
 // fn_802A13B0
 void f_802A13B0(Ctx* __restrict c) {
+  trace_call(0x802A13B0u);
   c->r[0]=R32(c->r[3]+0x00000038u); // 802A13B0
   c->r[3]=rotl(c->r[0],25)&0x00000001u; // 802A13B4
   return; // 802A13B8
@@ -24442,6 +24678,7 @@ void f_802A13B0(Ctx* __restrict c) {
 
 // fn_802A13C0
 void f_802A13C0(Ctx* __restrict c) {
+  trace_call(0x802A13C0u);
   c->r[7]=R8(c->r[4]+0x00000000u); // 802A13C0
   c->r[6]=R8(c->r[4]+0x00000001u); // 802A13C4
   c->r[5]=R8(c->r[4]+0x00000002u); // 802A13C8
@@ -24455,6 +24692,7 @@ void f_802A13C0(Ctx* __restrict c) {
 
 // fn_802A13F0
 void f_802A13F0(Ctx* __restrict c) {
+  trace_call(0x802A13F0u);
   c->r[0]=R32(c->r[3]+0x00000038u); // 802A13F0
   c->r[3]=rotl(c->r[0],18)&0x00000001u; // 802A13F4
   return; // 802A13F8
@@ -24462,6 +24700,7 @@ void f_802A13F0(Ctx* __restrict c) {
 
 // fn_802A1400
 void f_802A1400(Ctx* __restrict c) {
+  trace_call(0x802A1400u);
   c->r[0]=R8(c->r[4]+0x00000000u); // 802A1400
   W8(c->r[3]+0x00000000u,c->r[0]); // 802A1404
   return; // 802A1408
@@ -24469,6 +24708,7 @@ void f_802A1400(Ctx* __restrict c) {
 
 // fn_802A1410
 void f_802A1410(Ctx* __restrict c) {
+  trace_call(0x802A1410u);
   c->r[7]=R32(c->r[4]+0x00000000u); // 802A1410
   c->r[6]=R32(c->r[4]+0x00000004u); // 802A1414
   {uint32_t ea=c->r[4]+0x00000008u; c->f[0]=c->ps1[0]=RF32(ea);} // 802A1418
@@ -24484,6 +24724,7 @@ void f_802A1410(Ctx* __restrict c) {
 
 // fn_802A1440
 void f_802A1440(Ctx* __restrict c) {
+  trace_call(0x802A1440u);
   c->r[7]=R8(c->r[4]+0x00000000u); // 802A1440
   c->r[6]=R8(c->r[4]+0x00000001u); // 802A1444
   c->r[5]=R8(c->r[4]+0x00000002u); // 802A1448
@@ -24497,6 +24738,7 @@ void f_802A1440(Ctx* __restrict c) {
 
 // fn_802A1470
 void f_802A1470(Ctx* __restrict c) {
+  trace_call(0x802A1470u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802A1470
   c->r[12]=R8(c->r[4]+0x00000001u); // 802A1474
   W32(c->r[1]+0x0000000Cu,c->r[31]); // 802A1478
@@ -24526,6 +24768,7 @@ void f_802A1470(Ctx* __restrict c) {
 
 // fn_802A14E0
 void f_802A14E0(Ctx* __restrict c) {
+  trace_call(0x802A14E0u);
   c->r[0]=R32(c->r[3]+0x00000038u); // 802A14E0
   c->r[3]=rotl(c->r[0],26)&0x00000001u; // 802A14E4
   return; // 802A14E8
@@ -24533,6 +24776,7 @@ void f_802A14E0(Ctx* __restrict c) {
 
 // fn_802A14F0
 void f_802A14F0(Ctx* __restrict c) {
+  trace_call(0x802A14F0u);
   c->r[7]=R8(c->r[4]+0x00000000u); // 802A14F0
   c->r[6]=R8(c->r[4]+0x00000001u); // 802A14F4
   c->r[5]=R8(c->r[4]+0x00000002u); // 802A14F8
@@ -24546,6 +24790,7 @@ void f_802A14F0(Ctx* __restrict c) {
 
 // fn_802A1520
 void f_802A1520(Ctx* __restrict c) {
+  trace_call(0x802A1520u);
   c->r[0]=R32(c->r[3]+0x00000038u); // 802A1520
   c->r[3]=rotl(c->r[0],27)&0x00000001u; // 802A1524
   return; // 802A1528
@@ -24553,6 +24798,7 @@ void f_802A1520(Ctx* __restrict c) {
 
 // fn_802A1530
 void f_802A1530(Ctx* __restrict c) {
+  trace_call(0x802A1530u);
   c->r[7]=R8(c->r[4]+0x00000000u); // 802A1530
   c->r[6]=R8(c->r[4]+0x00000001u); // 802A1534
   c->r[5]=R8(c->r[4]+0x00000002u); // 802A1538
@@ -24566,60 +24812,70 @@ void f_802A1530(Ctx* __restrict c) {
 
 // fn_802A1560
 void f_802A1560(Ctx* __restrict c) {
+  trace_call(0x802A1560u);
   c->r[3]=c->r[3]+c->r[4]; // 802A1560
   return; // 802A1564
 }
 
 // fn_802A1570
 void f_802A1570(Ctx* __restrict c) {
+  trace_call(0x802A1570u);
   c->r[3]=c->r[3]+c->r[4]; // 802A1570
   return; // 802A1574
 }
 
 // fn_802A1580
 void f_802A1580(Ctx* __restrict c) {
+  trace_call(0x802A1580u);
   c->r[3]=c->r[3]+c->r[4]; // 802A1580
   return; // 802A1584
 }
 
 // fn_802A1590
 void f_802A1590(Ctx* __restrict c) {
+  trace_call(0x802A1590u);
   c->r[3]=c->r[3]+c->r[4]; // 802A1590
   return; // 802A1594
 }
 
 // fn_802A15A0
 void f_802A15A0(Ctx* __restrict c) {
+  trace_call(0x802A15A0u);
   c->r[3]=c->r[3]+c->r[4]; // 802A15A0
   return; // 802A15A4
 }
 
 // fn_802A15B0
 void f_802A15B0(Ctx* __restrict c) {
+  trace_call(0x802A15B0u);
   c->r[3]=c->r[3]+c->r[4]; // 802A15B0
   return; // 802A15B4
 }
 
 // fn_802A15C0
 void f_802A15C0(Ctx* __restrict c) {
+  trace_call(0x802A15C0u);
   c->r[3]=c->r[3]+c->r[4]; // 802A15C0
   return; // 802A15C4
 }
 
 // fn_802A15D0
 void f_802A15D0(Ctx* __restrict c) {
+  trace_call(0x802A15D0u);
   c->r[3]=c->r[3]+c->r[4]; // 802A15D0
   return; // 802A15D4
 }
 
 // fn_802A15E0
 void f_802A15E0(Ctx* __restrict c) {
+  trace_call(0x802A15E0u);
   c->r[3]=c->r[3]+c->r[4]; // 802A15E0
   return; // 802A15E4
 }
 
 // fn_802A15F0
 void f_802A15F0(Ctx* __restrict c) {
+  trace_call(0x802A15F0u);
   cmpu(c,0,c->r[3],c->r[4]); // 802A15F0
   if (!crb(c,1)) return; // 802A15F4
   c->r[3]=c->r[4]|c->r[4]; // 802A15F8
@@ -24628,24 +24884,28 @@ void f_802A15F0(Ctx* __restrict c) {
 
 // fn_802A1600
 void f_802A1600(Ctx* __restrict c) {
+  trace_call(0x802A1600u);
   c->r[3]=c->r[3]+c->r[4]; // 802A1600
   return; // 802A1604
 }
 
 // fn_802A1610
 void f_802A1610(Ctx* __restrict c) {
+  trace_call(0x802A1610u);
   c->r[3]=c->r[3]+c->r[4]; // 802A1610
   return; // 802A1614
 }
 
 // fn_802A1620
 void f_802A1620(Ctx* __restrict c) {
+  trace_call(0x802A1620u);
   c->r[3]=c->r[3]+c->r[4]; // 802A1620
   return; // 802A1624
 }
 
 // fn_802A1630
 void f_802A1630(Ctx* __restrict c) {
+  trace_call(0x802A1630u);
   c->r[7]=c->r[2]+0xFFFFB9F8u; // 802A1630
   c->r[0]=R32(c->r[3]+0x0000003Cu); // 802A1634
   c->r[5]=R32(c->r[3]+0x00000038u); // 802A1638
@@ -24678,6 +24938,7 @@ void f_802A1630(Ctx* __restrict c) {
 
 // fn_802A16A0
 void f_802A16A0(Ctx* __restrict c) {
+  trace_call(0x802A16A0u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802A16A0
   c->r[0]=c->lr; // 802A16A4
   cmps(c,0,(int32_t)c->r[3],0); // 802A16A8
@@ -24728,6 +24989,7 @@ L_802A1730:;
 
 // fn_802A1750
 void f_802A1750(Ctx* __restrict c) {
+  trace_call(0x802A1750u);
   {uint32_t ea=c->r[1]+0xFFFFFFA0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802A1750
   c->r[0]=c->lr; // 802A1754
   W32(c->r[1]+0x00000064u,c->r[0]); // 802A1758
@@ -25227,12 +25489,14 @@ L_802A1E9C:;
 
 // fn_802A1EC0
 void f_802A1EC0(Ctx* __restrict c) {
+  trace_call(0x802A1EC0u);
   c->r[3]=R32(c->r[3]+0x00000040u); // 802A1EC0
   return; // 802A1EC4
 }
 
 // fn_802A1ED0
 void f_802A1ED0(Ctx* __restrict c) {
+  trace_call(0x802A1ED0u);
   c->r[0]=R32(c->r[3]+0x00000038u); // 802A1ED0
   c->r[3]=R32(c->r[3]+0x00000040u); // 802A1ED4
   c->r[0]=rotl(c->r[0],4)&0x0000000Fu; // 802A1ED8
@@ -25243,6 +25507,7 @@ void f_802A1ED0(Ctx* __restrict c) {
 
 // fn_802A1EF0
 void f_802A1EF0(Ctx* __restrict c) {
+  trace_call(0x802A1EF0u);
   c->r[0]=R32(c->r[3]+0x00000038u); // 802A1EF0
   c->r[5]=R32(c->r[3]+0x00000040u); // 802A1EF4
   c->r[3]=rotl(c->r[0],8)&0x0000000Fu; // 802A1EF8
@@ -25256,6 +25521,7 @@ void f_802A1EF0(Ctx* __restrict c) {
 
 // fn_802A1F20
 void f_802A1F20(Ctx* __restrict c) {
+  trace_call(0x802A1F20u);
   c->r[4]=R32(c->r[3]+0x00000038u); // 802A1F20
   c->r[5]=R32(c->r[3]+0x00000040u); // 802A1F24
   c->r[3]=rotl(c->r[4],8)&0x0000000Fu; // 802A1F28
@@ -25271,6 +25537,7 @@ void f_802A1F20(Ctx* __restrict c) {
 
 // fn_802A1F50
 void f_802A1F50(Ctx* __restrict c) {
+  trace_call(0x802A1F50u);
   c->r[5]=R32(c->r[3]+0x00000038u); // 802A1F50
   c->r[7]=R32(c->r[3]+0x00000040u); // 802A1F54
   c->r[3]=rotl(c->r[5],8)&0x0000000Fu; // 802A1F58
@@ -25288,6 +25555,7 @@ void f_802A1F50(Ctx* __restrict c) {
 
 // fn_802A1F90
 void f_802A1F90(Ctx* __restrict c) {
+  trace_call(0x802A1F90u);
   c->r[6]=R32(c->r[3]+0x00000038u); // 802A1F90
   c->r[8]=R32(c->r[3]+0x00000040u); // 802A1F94
   c->r[3]=rotl(c->r[6],8)&0x0000000Fu; // 802A1F98
@@ -25307,6 +25575,7 @@ void f_802A1F90(Ctx* __restrict c) {
 
 // fn_802A1FD0
 void f_802A1FD0(Ctx* __restrict c) {
+  trace_call(0x802A1FD0u);
   c->r[4]=R32(c->r[3]+0x00000038u); // 802A1FD0
   c->r[9]=R32(c->r[3]+0x00000040u); // 802A1FD4
   c->r[3]=rotl(c->r[4],8)&0x0000000Fu; // 802A1FD8
@@ -25328,6 +25597,7 @@ void f_802A1FD0(Ctx* __restrict c) {
 
 // fn_802A2020
 void f_802A2020(Ctx* __restrict c) {
+  trace_call(0x802A2020u);
   c->r[6]=R32(c->r[3]+0x00000038u); // 802A2020
   c->r[9]=R32(c->r[3]+0x00000040u); // 802A2024
   c->r[3]=rotl(c->r[6],8)&0x0000000Fu; // 802A2028
@@ -25351,6 +25621,7 @@ void f_802A2020(Ctx* __restrict c) {
 
 // fn_802A2070
 void f_802A2070(Ctx* __restrict c) {
+  trace_call(0x802A2070u);
   c->r[8]=R32(c->r[3]+0x00000038u); // 802A2070
   c->r[9]=R32(c->r[3]+0x00000040u); // 802A2074
   c->r[3]=rotl(c->r[8],8)&0x0000000Fu; // 802A2078
@@ -25376,6 +25647,7 @@ void f_802A2070(Ctx* __restrict c) {
 
 // fn_802A20D0
 void f_802A20D0(Ctx* __restrict c) {
+  trace_call(0x802A20D0u);
   c->r[10]=R32(c->r[3]+0x00000038u); // 802A20D0
   c->r[11]=R32(c->r[3]+0x00000040u); // 802A20D4
   c->r[3]=rotl(c->r[10],8)&0x0000000Fu; // 802A20D8
@@ -25403,6 +25675,7 @@ void f_802A20D0(Ctx* __restrict c) {
 
 // fn_802A2130
 void f_802A2130(Ctx* __restrict c) {
+  trace_call(0x802A2130u);
   c->r[7]=R32(c->r[3]+0x00000038u); // 802A2130
   c->r[8]=R32(c->r[3]+0x00000040u); // 802A2134
   c->r[3]=rotl(c->r[7],14)&0x00000003u; // 802A2138
@@ -25432,6 +25705,7 @@ void f_802A2130(Ctx* __restrict c) {
 
 // fn_802A21A0
 void f_802A21A0(Ctx* __restrict c) {
+  trace_call(0x802A21A0u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802A21A0
   c->r[0]=c->lr; // 802A21A4
   c->r[5]=0u+0x00000014u; // 802A21A8
@@ -25451,6 +25725,7 @@ void f_802A21A0(Ctx* __restrict c) {
 
 // fn_802A21E0
 void f_802A21E0(Ctx* __restrict c) {
+  trace_call(0x802A21E0u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802A21E0
   c->r[0]=c->lr; // 802A21E4
   W32(c->r[1]+0x00000024u,c->r[0]); // 802A21E8
@@ -25530,6 +25805,7 @@ L_802A22D0:;
 
 // fn_802A2300
 void f_802A2300(Ctx* __restrict c) {
+  trace_call(0x802A2300u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802A2300
   c->r[0]=c->lr; // 802A2304
   W32(c->r[1]+0x00000024u,c->r[0]); // 802A2308
@@ -25607,6 +25883,7 @@ L_802A23E8:;
 
 // fn_802A2410
 void f_802A2410(Ctx* __restrict c) {
+  trace_call(0x802A2410u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802A2410
   c->r[0]=c->lr; // 802A2414
   W32(c->r[1]+0x00000024u,c->r[0]); // 802A2418
@@ -25716,6 +25993,7 @@ L_802A2578:;
 
 // fn_802A25A0
 void f_802A25A0(Ctx* __restrict c) {
+  trace_call(0x802A25A0u);
   {uint32_t ea=c->r[1]+0xFFFFFFE0u; W32(ea,c->r[1]); c->r[1]=ea;} // 802A25A0
   c->r[0]=c->lr; // 802A25A4
   W32(c->r[1]+0x00000024u,c->r[0]); // 802A25A8

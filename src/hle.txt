@@ -61,3 +61,4 @@ gclongjmp
 OSExitThread = wrap
 WPADSetSamplingCallback = 0
 WPADGetInfo         # Lost in Shadow checks the battery
+WPADIsDpdEnabled = 1

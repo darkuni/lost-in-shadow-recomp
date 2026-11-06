@@ -8,8 +8,8 @@ Linux (SteamOS / Steam Deck) with a small runtime that replaces the Wii hardware
 
 ## Status
 
-Work in progress. Boots through the safety and Nunchuk screens, the title screen and the opening movie (Linux headless
-tests). Controls: a gamepad or WASD drives the Nunchuk stick, the mouse (or the right stick) is the Wii Remote pointer,
+Work in progress. Boots through the safety and Nunchuk screens, the title screen, file select and the opening movie (Linux headless
+tests) into the first stage. Controls: a gamepad or WASD drives the Nunchuk stick, the mouse (or the right stick) is the Wii Remote pointer,
 and a real Wii Remote paired over Bluetooth works for buttons, motion and pointer.
 
 ## Download

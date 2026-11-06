@@ -3,286 +3,343 @@
 
 // fn_802FE02C
 void f_802FE02C(Ctx* __restrict c) {
+  trace_call(0x802FE02Cu);
   f_80107630(c); return; // 802FE02C
 }
 
 // fn_802FE030
 void f_802FE030(Ctx* __restrict c) {
+  trace_call(0x802FE030u);
   f_801076A0(c); return; // 802FE030
 }
 
 // fn_802FE034
 void f_802FE034(Ctx* __restrict c) {
+  trace_call(0x802FE034u);
   f_80107740(c); return; // 802FE034
 }
 
 // fn_802FE038
 void f_802FE038(Ctx* __restrict c) {
+  trace_call(0x802FE038u);
   f_80106900(c); return; // 802FE038
 }
 
 // fn_802FE03C
 void f_802FE03C(Ctx* __restrict c) {
+  trace_call(0x802FE03Cu);
   f_801069F0(c); return; // 802FE03C
 }
 
 // fn_802FE040
 void f_802FE040(Ctx* __restrict c) {
+  trace_call(0x802FE040u);
   f_80106BA0(c); return; // 802FE040
 }
 
 // fn_802FE044
 void f_802FE044(Ctx* __restrict c) {
+  trace_call(0x802FE044u);
   f_80106D50(c); return; // 802FE044
 }
 
 // fn_802FE048
 void f_802FE048(Ctx* __restrict c) {
+  trace_call(0x802FE048u);
   f_801077A0(c); return; // 802FE048
 }
 
 // fn_802FE04C
 void f_802FE04C(Ctx* __restrict c) {
+  trace_call(0x802FE04Cu);
   f_80107870(c); return; // 802FE04C
 }
 
 // fn_802FE050
 void f_802FE050(Ctx* __restrict c) {
+  trace_call(0x802FE050u);
   f_80107AB0(c); return; // 802FE050
 }
 
 // fn_802FE054
 void f_802FE054(Ctx* __restrict c) {
+  trace_call(0x802FE054u);
   f_801080E0(c); return; // 802FE054
 }
 
 // fn_802FE058
 void f_802FE058(Ctx* __restrict c) {
+  trace_call(0x802FE058u);
   f_80108170(c); return; // 802FE058
 }
 
 // fn_802FE05C
 void f_802FE05C(Ctx* __restrict c) {
+  trace_call(0x802FE05Cu);
   f_80107BF0(c); return; // 802FE05C
 }
 
 // fn_802FE060
 void f_802FE060(Ctx* __restrict c) {
+  trace_call(0x802FE060u);
   f_80107FD0(c); return; // 802FE060
 }
 
 // fn_802FE064
 void f_802FE064(Ctx* __restrict c) {
+  trace_call(0x802FE064u);
   f_8010AF20(c); return; // 802FE064
 }
 
 // fn_802FE068
 void f_802FE068(Ctx* __restrict c) {
+  trace_call(0x802FE068u);
   f_8010AF90(c); return; // 802FE068
 }
 
 // fn_802FE06C
 void f_802FE06C(Ctx* __restrict c) {
+  trace_call(0x802FE06Cu);
   f_8010B330(c); return; // 802FE06C
 }
 
 // fn_802FE070
 void f_802FE070(Ctx* __restrict c) {
+  trace_call(0x802FE070u);
   f_8010B400(c); return; // 802FE070
 }
 
 // fn_802FE074
 void f_802FE074(Ctx* __restrict c) {
+  trace_call(0x802FE074u);
   f_8010B9A0(c); return; // 802FE074
 }
 
 // fn_802FE078
 void f_802FE078(Ctx* __restrict c) {
+  trace_call(0x802FE078u);
   f_8010BA00(c); return; // 802FE078
 }
 
 // fn_802FE07C
 void f_802FE07C(Ctx* __restrict c) {
+  trace_call(0x802FE07Cu);
   f_8010BAC0(c); return; // 802FE07C
 }
 
 // fn_802FE080
 void f_802FE080(Ctx* __restrict c) {
+  trace_call(0x802FE080u);
   f_8010B600(c); return; // 802FE080
 }
 
 // fn_802FE084
 void f_802FE084(Ctx* __restrict c) {
+  trace_call(0x802FE084u);
   f_80109C80(c); return; // 802FE084
 }
 
 // fn_802FE088
 void f_802FE088(Ctx* __restrict c) {
+  trace_call(0x802FE088u);
   f_80109DC0(c); return; // 802FE088
 }
 
 // fn_802FE08C
 void f_802FE08C(Ctx* __restrict c) {
+  trace_call(0x802FE08Cu);
   f_80109E30(c); return; // 802FE08C
 }
 
 // fn_802FE090
 void f_802FE090(Ctx* __restrict c) {
+  trace_call(0x802FE090u);
   f_80062D80(c); return; // 802FE090
 }
 
 // fn_802FE094
 void f_802FE094(Ctx* __restrict c) {
+  trace_call(0x802FE094u);
   f_800630D0(c); return; // 802FE094
 }
 
 // fn_802FE098
 void f_802FE098(Ctx* __restrict c) {
+  trace_call(0x802FE098u);
   f_80063220(c); return; // 802FE098
 }
 
 // fn_802FE09C
 void f_802FE09C(Ctx* __restrict c) {
+  trace_call(0x802FE09Cu);
   f_80063330(c); return; // 802FE09C
 }
 
 // fn_802FE0A0
 void f_802FE0A0(Ctx* __restrict c) {
+  trace_call(0x802FE0A0u);
   f_80063170(c); return; // 802FE0A0
 }
 
 // fn_802FE0A4
 void f_802FE0A4(Ctx* __restrict c) {
+  trace_call(0x802FE0A4u);
   f_80063420(c); return; // 802FE0A4
 }
 
 // fn_802FE0A8
 void f_802FE0A8(Ctx* __restrict c) {
+  trace_call(0x802FE0A8u);
   f_80063480(c); return; // 802FE0A8
 }
 
 // fn_802FE0AC
 void f_802FE0AC(Ctx* __restrict c) {
+  trace_call(0x802FE0ACu);
   f_800634E0(c); return; // 802FE0AC
 }
 
 // fn_802FE0B0
 void f_802FE0B0(Ctx* __restrict c) {
+  trace_call(0x802FE0B0u);
   f_80063540(c); return; // 802FE0B0
 }
 
 // fn_802FE0B4
 void f_802FE0B4(Ctx* __restrict c) {
+  trace_call(0x802FE0B4u);
   f_800635A0(c); return; // 802FE0B4
 }
 
 // fn_802FE0B8
 void f_802FE0B8(Ctx* __restrict c) {
+  trace_call(0x802FE0B8u);
   f_80063600(c); return; // 802FE0B8
 }
 
 // fn_802FE0BC
 void f_802FE0BC(Ctx* __restrict c) {
+  trace_call(0x802FE0BCu);
   f_80063660(c); return; // 802FE0BC
 }
 
 // fn_802FE0C0
 void f_802FE0C0(Ctx* __restrict c) {
+  trace_call(0x802FE0C0u);
   f_800636D0(c); return; // 802FE0C0
 }
 
 // fn_802FE0C4
 void f_802FE0C4(Ctx* __restrict c) {
+  trace_call(0x802FE0C4u);
   f_80063730(c); return; // 802FE0C4
 }
 
 // fn_802FE0C8
 void f_802FE0C8(Ctx* __restrict c) {
+  trace_call(0x802FE0C8u);
   f_80063780(c); return; // 802FE0C8
 }
 
 // fn_802FE0CC
 void f_802FE0CC(Ctx* __restrict c) {
+  trace_call(0x802FE0CCu);
   f_80063810(c); return; // 802FE0CC
 }
 
 // fn_802FE0D0
 void f_802FE0D0(Ctx* __restrict c) {
+  trace_call(0x802FE0D0u);
   f_80063870(c); return; // 802FE0D0
 }
 
 // fn_802FE0D4
 void f_802FE0D4(Ctx* __restrict c) {
+  trace_call(0x802FE0D4u);
   f_80063900(c); return; // 802FE0D4
 }
 
 // fn_802FE0D8
 void f_802FE0D8(Ctx* __restrict c) {
+  trace_call(0x802FE0D8u);
   f_8010DC00(c); return; // 802FE0D8
 }
 
 // fn_802FE0DC
 void f_802FE0DC(Ctx* __restrict c) {
+  trace_call(0x802FE0DCu);
   f_8010DD10(c); return; // 802FE0DC
 }
 
 // fn_802FE0E0
 void f_802FE0E0(Ctx* __restrict c) {
+  trace_call(0x802FE0E0u);
   f_8010DF80(c); return; // 802FE0E0
 }
 
 // fn_802FE0E4
 void f_802FE0E4(Ctx* __restrict c) {
+  trace_call(0x802FE0E4u);
   f_8010E0F0(c); return; // 802FE0E4
 }
 
 // fn_802FE0E8
 void f_802FE0E8(Ctx* __restrict c) {
+  trace_call(0x802FE0E8u);
   f_8010DA60(c); return; // 802FE0E8
 }
 
 // fn_802FE0EC
 void f_802FE0EC(Ctx* __restrict c) {
+  trace_call(0x802FE0ECu);
   f_8010DB30(c); return; // 802FE0EC
 }
 
 // fn_802FE0F0
 void f_802FE0F0(Ctx* __restrict c) {
+  trace_call(0x802FE0F0u);
   f_80106650(c); return; // 802FE0F0
 }
 
 // fn_802FE0F4
 void f_802FE0F4(Ctx* __restrict c) {
+  trace_call(0x802FE0F4u);
   f_8010E700(c); return; // 802FE0F4
 }
 
 // fn_802FE0F8
 void f_802FE0F8(Ctx* __restrict c) {
+  trace_call(0x802FE0F8u);
   f_8010E070(c); return; // 802FE0F8
 }
 
 // fn_802FE0FC
 void f_802FE0FC(Ctx* __restrict c) {
+  trace_call(0x802FE0FCu);
   f_8010E8A0(c); return; // 802FE0FC
 }
 
 // fn_802FE100
 void f_802FE100(Ctx* __restrict c) {
+  trace_call(0x802FE100u);
   f_80103CF0(c); return; // 802FE100
 }
 
 // fn_802FE104
 void f_802FE104(Ctx* __restrict c) {
+  trace_call(0x802FE104u);
   f_8010EB50(c); return; // 802FE104
 }
 
 // fn_802FE108
 void f_802FE108(Ctx* __restrict c) {
+  trace_call(0x802FE108u);
   f_8010EC60(c); return; // 802FE108
 }
 
 // fn_802FE10C
 void f_802FE10C(Ctx* __restrict c) {
+  trace_call(0x802FE10Cu);
   f_8010ECA0(c); return; // 802FE10C
 }
 

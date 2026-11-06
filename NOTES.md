@@ -48,10 +48,30 @@ Same recompiler and runtime as Zack & Wiki, TARGET: Terror and Geometry Wars: Ga
 - Nunchuk always attached (G_NUNCHUK): WPADProbe reports FREESTYLE, KPADRead dev_type 1 and ex_status.fs stick.
   WPADGetInfo (battery check) answers for remote 1.
 
+- Interrupt handlers run with the scheduler disabled (OSDisableScheduler / OSEnableScheduler around them,
+  __OSReschedule after, like __OSDispatchInterrupt): the THP player's AI callback wakes a thread with
+  OSSendMessage, and switching to it inside the handler let two threads into the callback at once (hang in the
+  opening movie). Enabled per game with G_FN_OS_RESCHEDULE in game.h.
+- AX DSP: at the end of a one-shot voice the accelerator wraps the current address to the loop address and
+  stops. NW4R points one-shots' loop address at its zero buffer and treats "address inside the zero buffer" as
+  finished; before this every sound effect stayed attached forever (the title waited on the "decide" sound).
+- WPADIsDpdEnabled is stubbed (WPAD isn't initialised, the real one reads its control block).
+
 ## game.h constants
 - __AXDSPResumeCallback 0x80150ED0, DecrementerExceptionCallback 0x8011FF30, iosFree 0x801B3AA0, OSExitThread
   0x80129880, SelectThread idle branch 0x801294D8, interrupt table r13-0x4428, IOS heap r13-0x5304.
 
+- Asynchronous IOS requests (disc reads) complete 0.3 ms later on a timer thread instead of immediately
+  (G_IOS_ASYNC_DELAY_US): the loader's read callback uses a buffer pointer the main code stores only after
+  DVDReadAsyncPrio returns, so an instant completion sent the rest of player.bin to 0x80020000 (the model data
+  came out truncated: "NW3DModelCreateName Error.Not a Model.", then a fault on the missing model).
+
+## Status / open issues
+- Boots through the safety screens, title, file select and the opening movie (THP) into the first stage
+  (Garden / Well Yard). The picture looks overexposed there; not checked further yet.
+
 ## Testing
 - Same switches as the other recomps: `POINTER=x,y`, `AUTOPRESS_FRAMES=1 AUTOPRESS=A@400-406,...`, `SHOT_EVERY`,
-  `SHOT_DIR`, `TIMEOUT` (seconds, default 15), `TRACEFN=addr,...`, `TDEBUG=1` (scheduler switches).
+  `SHOT_DIR`, `TIMEOUT` (seconds, default 15), `TRACEFN=addr,...` (any function now, fn_ ones too) with
+  `TRACEDUMP=1` (64 bytes at r3/r4), `TDEBUG=1` (scheduler switches), `AXVOICES=n` (voice dump every n PBs),
+  `AXLOG=1`. Headless tests run much faster with resolution_scale = 1, msaa = 1 and speed = 8 in the ini.

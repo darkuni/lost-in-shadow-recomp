@@ -21,9 +21,17 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Toolchain (mingw-w64 posix threads, CMake, Ninja)
+        timeout-minutes: 25
         run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends mingw-w64 g++-mingw-w64-x86-64-posix cmake ninja-build zip
+          # apt on the hosted runners sometimes stalls (man-db triggers, slow mirrors): skip man-db,
+          # bound each attempt and retry
+          sudo rm -f /var/lib/man-db/auto-update
+          for i in 1 2 3; do
+            timeout 300 sudo apt-get update -o Acquire::Retries=3 &&
+            timeout 600 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends mingw-w64 g++-mingw-w64-x86-64-posix cmake ninja-build zip && break
+            echo "apt attempt $i failed, retrying"; sleep 15
+          done
+          command -v x86_64-w64-mingw32-g++-posix
 
       - name: SDL2 (mingw development package)
         run: |
@@ -68,9 +76,15 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Toolchain (CMake, Ninja, SDL2, OpenGL)
+        timeout-minutes: 25
         run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends cmake ninja-build g++ libsdl2-dev libgl-dev
+          sudo rm -f /var/lib/man-db/auto-update
+          for i in 1 2 3; do
+            timeout 300 sudo apt-get update -o Acquire::Retries=3 &&
+            timeout 600 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends cmake ninja-build g++ libsdl2-dev libgl-dev && break
+            echo "apt attempt $i failed, retrying"; sleep 15
+          done
+          dpkg -s libsdl2-dev >/dev/null
 
       - name: Build
         working-directory: src

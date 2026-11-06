@@ -332,6 +332,16 @@ void trace_call(uint32_t a) {
         if (c) fprintf(LOG, "[fn] VI %llu %08X lr %08X r3-r10 %08X %08X %08X %08X %08X %08X %08X %08X sp+8.. %08X %08X %08X %08X %08X\n", (unsigned long long)g_vi_count, a, c->lr,
                        c->r[3], c->r[4], c->r[5], c->r[6], c->r[7], c->r[8], c->r[9], c->r[10], R32(c->r[1] + 8), R32(c->r[1] + 12), R32(c->r[1] + 16), R32(c->r[1] + 20), R32(c->r[1] + 24));
         else fprintf(LOG, "[fn] VI %llu %08X\n", (unsigned long long)g_vi_count, a);
+        static const uint32_t extra = getenv("TRACEADDR") ? (uint32_t)strtoul(getenv("TRACEADDR"), nullptr, 16) : 0;
+        if (extra) { fprintf(LOG, "     %08X:", extra); for (int i = 0; i < 64; i++) fprintf(LOG, "%s%02X", (i % 16) ? " " : "  ", R8(extra + i)); fprintf(LOG, "\n"); }
+        static const bool dump = getenv("TRACEDUMP") != nullptr;   // also dump 64 bytes at r3 and r4
+        if (dump && c) for (int k = 3; k <= 4; k++) {
+            uint32_t p = c->r[k];
+            if ((p >> 28) != 8 && (p >> 28) != 9) continue;
+            fprintf(LOG, "     r%d %08X:", k, p);
+            for (int i = 0; i < 64; i++) fprintf(LOG, "%s%02X", (i % 16) ? " " : "  ", R8(p + i));
+            fprintf(LOG, "\n");
+        }
     }
     static bool tracing = getenv("TRACE") != nullptr;
     if (!tracing) return;

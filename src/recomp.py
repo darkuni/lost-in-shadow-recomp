@@ -488,7 +488,7 @@ class Gen:
             out.append(f'  hle_{self.hle[start]}(c);')
             out.append('}')
             return '\n'.join(out)
-        if start >= 0x80006940 and not name.startswith(('fn_', 'dtor_', '@', 'jumptable')):
+        if start >= 0x80006940 and not name.startswith(('dtor_', '@', 'jumptable')):
             out.append(f'  trace_call(0x{start:08X}u);')
         for pc in range(start, end, 4):
             if pc in labels:

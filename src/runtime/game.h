@@ -17,3 +17,7 @@
 #define G_FN_IOS_FREE           f_801B3AA0
 #define G_KPAD_STATUS_SIZE      0xF0u         // KPADStatus (Dec 2009 KPAD, MotionPlus fields): KPADRead buffer stride
 #define G_NUNCHUK               1             // Nunchuk always attached (the game requires it); see hle_input.cpp
+#define G_FN_OS_DISABLE_SCHEDULER f_80129050  // interrupt handlers run with the scheduler off (hle_thread.cpp irq_check)
+#define G_FN_OS_ENABLE_SCHEDULER  f_80129090
+#define G_FN_OS_RESCHEDULE        f_801295B0  // __OSReschedule after the handlers
+#define G_IOS_ASYNC_DELAY_US    300u          // async IOS requests (disc reads) complete 0.3 ms later (hle_ios.cpp)

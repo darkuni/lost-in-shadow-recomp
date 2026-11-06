@@ -861,6 +861,7 @@ L_801815DC:;
 
 // fn_801815F8
 void f_801815F8(Ctx* __restrict c) {
+  trace_call(0x801815F8u);
   {uint32_t ea=c->r[1]+0xFFFFFFF0u; W32(ea,c->r[1]); c->r[1]=ea;} // 801815F8
   c->r[0]=c->lr; // 801815FC
   c->r[3]=0u+0x00000008u; // 80181600
@@ -6550,6 +6551,7 @@ L_801860A0:;
 
 // fn_80186108
 void f_80186108(Ctx* __restrict c) {
+  trace_call(0x80186108u);
   return; // 80186108
 }
 
@@ -7721,6 +7723,7 @@ L_80187024:;
 
 // fn_80187058
 void f_80187058(Ctx* __restrict c) {
+  trace_call(0x80187058u);
   return; // 80187058
 }
 
@@ -10288,6 +10291,7 @@ L_80189294:;
 
 // fn_801892C4
 void f_801892C4(Ctx* __restrict c) {
+  trace_call(0x801892C4u);
   f_80179220(c); return; // 801892C4
 }
 
@@ -16540,6 +16544,7 @@ L_8018E7A0:;
 
 // fn_8018E7B8
 void f_8018E7B8(Ctx* __restrict c) {
+  trace_call(0x8018E7B8u);
   c->r[4]=c->r[3]|c->r[3]; // 8018E7B8
   c->r[3]=0u+0x00000000u; // 8018E7BC
   f_8018E5E0(c); return; // 8018E7C0
@@ -16547,6 +16552,7 @@ void f_8018E7B8(Ctx* __restrict c) {
 
 // fn_8018E7C4
 void f_8018E7C4(Ctx* __restrict c) {
+  trace_call(0x8018E7C4u);
   c->r[4]=c->r[3]|c->r[3]; // 8018E7C4
   c->r[3]=0u+0x00000001u; // 8018E7C8
   f_8018E5E0(c); return; // 8018E7CC

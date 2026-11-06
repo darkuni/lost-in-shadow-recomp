@@ -19,6 +19,9 @@
 #include <vector>
 #include <memory>
 
+#ifdef G_FN_OS_RESCHEDULE
+void G_FN_OS_DISABLE_SCHEDULER(Ctx*); void G_FN_OS_ENABLE_SCHEDULER(Ctx*); void G_FN_OS_RESCHEDULE(Ctx*);
+#endif
 static std::mutex g_big;
 static bool g_dbg = getenv("TDEBUG") != nullptr;
 std::atomic<unsigned long> g_irq_posted{0}, g_irq_done{0}, g_switches{0};
@@ -185,6 +188,34 @@ void post_irq_front(std::function<void(Ctx*)> fn) {
     g_irq_cv.notify_all();
 }
 
+// Deliver an interrupt no sooner than `us` microseconds from now (device completions: real hardware
+// never finishes a disc read before the code that started it has returned).
+void post_irq_after(uint32_t us, std::function<void(Ctx*)> fn) {
+    struct Item { std::chrono::steady_clock::time_point due; uint64_t seq; std::function<void(Ctx*)> fn; };
+    static std::mutex m;
+    static std::condition_variable cv;
+    static std::deque<Item> q;   // due times are nondecreasing (fixed delay per caller is typical)
+    static uint64_t seq = 0;
+    static std::thread th([] {
+        std::unique_lock<std::mutex> lk(m);
+        for (;;) {
+            if (q.empty()) { cv.wait(lk); continue; }
+            auto due = q.front().due;
+            if (std::chrono::steady_clock::now() < due) { cv.wait_until(lk, due); continue; }
+            auto fn = std::move(q.front().fn);
+            q.pop_front();
+            lk.unlock();
+            post_irq(std::move(fn));
+            lk.lock();
+        }
+    });
+    std::lock_guard<std::mutex> g(m);
+    auto due = std::chrono::steady_clock::now() + std::chrono::microseconds(us);
+    if (!q.empty() && q.back().due > due) due = q.back().due;   // keep completion order
+    q.push_back({due, seq++, std::move(fn)});
+    cv.notify_one();
+}
+
 void post_irq(std::function<void(Ctx*)> fn) {
     std::lock_guard<std::mutex> g(g_qmx);
     g_irq_q.push_back(std::move(fn));
@@ -208,6 +239,12 @@ void irq_check(Ctx* c) {
     t_in_irq = true;
     uint32_t saved_irq_ctx = t_irq_ctx;
     t_irq_ctx = R32(0x800000D4u);
+#ifdef G_FN_OS_RESCHEDULE
+    // like __OSDispatchInterrupt: no thread switch inside a handler (a callback that wakes a thread
+    // must not hand the CPU to it mid-interrupt); reschedule once the handlers are done
+    auto sched_call = [&](void (*f)(Ctx*)) { Ctx* sc = new Ctx(*c); sc->msr &= ~0x8000u; sc->r[1] = (c->r[1] - 0x400) & ~15u; f(sc); delete sc; };
+    sched_call(G_FN_OS_DISABLE_SCHEDULER);
+#endif
     for (;;) {
         std::function<void(Ctx*)> fn;
         {
@@ -225,8 +262,14 @@ void irq_check(Ctx* c) {
         delete ic;
         (void)tmp;
     }
+#ifdef G_FN_OS_RESCHEDULE
+    sched_call(G_FN_OS_ENABLE_SCHEDULER);
+#endif
     t_irq_ctx = saved_irq_ctx;
     t_in_irq = false;
+#ifdef G_FN_OS_RESCHEDULE
+    sched_call(G_FN_OS_RESCHEDULE);
+#endif
 }
 
 // Block the guest CPU (still taking interrupts) until cond() holds or timeout; used when the

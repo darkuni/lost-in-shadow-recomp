@@ -229,7 +229,13 @@ void hle___ios_Ipc2(Ctx* c) {
     c->r[3] = 0;
     if (res == INT32_MIN) return;   // never completes
     uint32_t usr = R32(req + 0x24);
+#ifdef G_IOS_ASYNC_DELAY_US
+    // complete asynchronous requests a little later, never inside the call that issued them
+    // (Lost in Shadow's loader stores the buffer it reads into only after DVDReadAsyncPrio returns)
+    post_irq_after(G_IOS_ASYNC_DELAY_US, [=](Ctx* ic) {
+#else
     post_irq([=](Ctx* ic) {
+#endif
         W32(req + 4, (uint32_t)res);
         guest_call(ic, cb, {(uint32_t)res, usr});
         guest_call(ic, G_IOS_FREE, {heap, req});
