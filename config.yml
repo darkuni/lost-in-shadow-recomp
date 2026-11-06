@@ -1,0 +1,8 @@
+object: orig/main.dol
+hash: b4ab43bc52c5297777bad0e0b2ec1b0891c2b5d2
+symbols: config/symbols.txt
+splits: config/splits.txt
+detect_objects: true
+detect_strings: true
+write_asm: false
+quick_analysis: false
