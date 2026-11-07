@@ -118,8 +118,10 @@ void gl_platform_release() {
     t_current = false;
 }
 
+void gl_owner_prepare();
 void gl_platform_make_current() {
     if (t_current) return;
+    gl_owner_prepare();   // the holder (another guest thread) releases it first
     if (SDL_GL_MakeCurrent(g_win, g_glc) != 0) {
         static int n = 0;
         if (n++ < 5) fprintf(stderr, "[gl] MakeCurrent failed: %s\n", SDL_GetError());
