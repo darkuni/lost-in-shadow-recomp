@@ -28,8 +28,26 @@ static int g_ai_limit = getenv("AI_LIMIT") ? atoi(getenv("AI_LIMIT")) : 16;   //
 
 void audio_out(const int16_t* lr, int frames);   // host output (platform)
 
-void hle_AIRegisterDMACallback(Ctx* c) { uint32_t old = g_ai_cb; g_ai_cb = c->r[3]; c->r[3] = old; }
-void hle_AIInitDMA(Ctx* c) { g_ai_buf = c->r[3]; g_ai_len = c->r[4]; }
+// The first AI callback registered is AX's own (__AXOutInit). A movie player (THP) or the game's
+// own streamer later installs a callback that calls AX's and then mixes its audio into the buffer
+// AX just queued (AIGetDMAStartAddr). While such a wrapper is installed the host output comes from
+// that buffer after the callback, not straight from the AX mixer, or the extra audio is lost.
+static uint32_t g_ai_cb_first = 0;
+bool g_ai_wrapped = false;
+void hle_AIRegisterDMACallback(Ctx* c) {
+    uint32_t old = g_ai_cb; g_ai_cb = c->r[3]; c->r[3] = old;
+    if (!g_ai_cb_first) g_ai_cb_first = g_ai_cb;
+    g_ai_wrapped = g_ai_cb && g_ai_cb != g_ai_cb_first;
+}
+void mmio_poke(uint32_t a, uint32_t v);
+uint32_t mmio_peek(uint32_t a);
+void hle_AIInitDMA(Ctx* c) {
+    g_ai_buf = c->r[3]; g_ai_len = c->r[4];
+    // the DSP registers the real AIInitDMA writes, for AIGetDMAStartAddr / AIGetDMALength
+    mmio_poke(0xCC005030u, (mmio_peek(0xCC005030u) & 0xE000u) | ((g_ai_buf >> 16) & 0x1FFFu));
+    mmio_poke(0xCC005032u, g_ai_buf & 0xFFE0u);
+    mmio_poke(0xCC005036u, (mmio_peek(0xCC005036u) & 0x8000u) | ((g_ai_len >> 5) & 0x7FFFu));
+}
 
 static void ai_thread() {
     using clk = std::chrono::steady_clock;
@@ -47,10 +65,17 @@ static void ai_thread() {
             // races the next mix (repeated, skipped or half-written 3 ms blocks = clicks)
             if (g_ax_frames == 0 && g_ai_buf && g_ai_len) {
                 std::vector<int16_t> s(g_ai_len / 2);
-                for (uint32_t i = 0; i < g_ai_len / 2; i++) s[i] = (int16_t)R16(g_ai_buf + 2 * i);
+                for (uint32_t i = 0; i < g_ai_len / 2; i++) s[i] = (int16_t)R16(phys_to_guest(g_ai_buf) + 2 * i);
                 audio_out(s.data(), (int)(g_ai_len / 4));
             }
             if (g_ai_cb) guest_call(c, g_ai_cb, {});
+            if (g_ax_frames && g_ai_wrapped && g_ai_buf && g_ai_len) {
+                // AX's mix plus whatever the wrapping callback added, in the buffer it just queued
+                uint32_t b = phys_to_guest(g_ai_buf);
+                std::vector<int16_t> s(g_ai_len / 2);
+                for (uint32_t i = 0; i < g_ai_len / 2; i++) s[i] = (int16_t)R16(b + 2 * i);
+                audio_out(s.data(), (int)(g_ai_len / 4));
+            }
             g_ai_inflight--;
         });
     }

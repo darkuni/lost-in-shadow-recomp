@@ -56,22 +56,32 @@ Same recompiler and runtime as Zack & Wiki, TARGET: Terror and Geometry Wars: Ga
   stops. NW4R points one-shots' loop address at its zero buffer and treats "address inside the zero buffer" as
   finished; before this every sound effect stayed attached forever (the title waited on the "decide" sound).
 - WPADIsDpdEnabled is stubbed (WPAD isn't initialised, the real one reads its control block).
+- AI callback wrappers: the THP player (and the game's own streamer at 0x800847C0) installs an AI DMA callback
+  that calls AX's and then mixes its audio into the buffer AX just queued (AIGetDMAStartAddr). AIInitDMA now
+  sets the DSP registers AIGetDMAStartAddr reads, and while a wrapper is installed the host output is that AI
+  buffer after the callback instead of the AX mixer output (before: movies and cut scenes had no sound).
+- Renderer: the default position / texture matrix indices come from the XF copy (0x1018/0x1019), not the CP
+  one (0x30/0x40); the game sets them through XF only (missing wall shadow and boy silhouette).
 
 ## game.h constants
 - __AXDSPResumeCallback 0x80150ED0, DecrementerExceptionCallback 0x8011FF30, iosFree 0x801B3AA0, OSExitThread
   0x80129880, SelectThread idle branch 0x801294D8, interrupt table r13-0x4428, IOS heap r13-0x5304.
 
-- Asynchronous IOS requests (disc reads) complete 0.3 ms later on a timer thread instead of immediately
+- Asynchronous IOS requests (disc reads) complete 2 ms later on a timer thread instead of immediately
   (G_IOS_ASYNC_DELAY_US): the loader's read callback uses a buffer pointer the main code stores only after
   DVDReadAsyncPrio returns, so an instant completion sent the rest of player.bin to 0x80020000 (the model data
   came out truncated: "NW3DModelCreateName Error.Not a Model.", then a fault on the missing model).
 
 ## Status / open issues
 - Boots through the safety screens, title, file select and the opening movie (THP) into the first stage
-  (Garden / Well Yard). The picture looks overexposed there; not checked further yet.
+  (Garden / Well Yard) and plays: jump tutorial, the run to the "B and Pointer to Search" spot.
+- Player HP is at 0x8040B2B4 (grams x 100, max 500 at +4); damage goes through fn_80065820. Walking into the
+  spiked fence at the jump tutorial without jumping costs 1.00 g per hit (that's the game, not a bug).
+- Cut-scene audio fixed (see AI callback wrappers); in-engine cut scenes not checked one by one yet.
 
 ## Testing
 - Same switches as the other recomps: `POINTER=x,y`, `AUTOPRESS_FRAMES=1 AUTOPRESS=A@400-406,...`, `SHOT_EVERY`,
   `SHOT_DIR`, `TIMEOUT` (seconds, default 15), `TRACEFN=addr,...` (any function now, fn_ ones too) with
   `TRACEDUMP=1` (64 bytes at r3/r4), `TDEBUG=1` (scheduler switches), `AXVOICES=n` (voice dump every n PBs),
-  `AXLOG=1`. Headless tests run much faster with resolution_scale = 1, msaa = 1 and speed = 8 in the ini.
+  `AXLOG=1`, `AUDIO_WAV=file` (host audio to a WAV), `SHOT_FROM=frame`, `MEMDUMP_EVERY=n MEMDUMP_FROM=frame`
+  (MEM1+MEM2 snapshots to SHOT_DIR for diffing). Headless tests run much faster with resolution_scale = 1, msaa = 1 and speed = 8 in the ini.

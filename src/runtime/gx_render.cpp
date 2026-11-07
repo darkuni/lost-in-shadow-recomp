@@ -971,7 +971,14 @@ static void efb_copy_impl(uint32_t val) {
         }
         static int every = getenv("SHOT_EVERY") ? atoi(getenv("SHOT_EVERY")) : 0;
         static const char* dir = getenv("SHOT_DIR") ? getenv("SHOT_DIR") : ".";
-        if (every > 0 && g_frame % every == 0) {
+        static int md_every = getenv("MEMDUMP_EVERY") ? atoi(getenv("MEMDUMP_EVERY")) : 0;   // debug: RAM snapshots
+        static long md_from = getenv("MEMDUMP_FROM") ? atol(getenv("MEMDUMP_FROM")) : 0;
+        if (md_every > 0 && (long)g_frame >= md_from && g_frame % md_every == 0) {
+            char path[256]; snprintf(path, sizeof path, "%s/mem_%06u.bin", dir, (unsigned)g_frame);
+            if (FILE* f = fopen(path, "wb")) { fwrite(MEM + 0x80000000u, 1, 0x1800000, f); fwrite(MEM + 0x90000000u, 1, 0x4000000, f); fclose(f); }
+        }
+        static long shot_from = getenv("SHOT_FROM") ? atol(getenv("SHOT_FROM")) : 0;
+        if (every > 0 && (long)g_frame >= shot_from && g_frame % every == 0) {
             std::vector<uint8_t> px((size_t)sw * sh * 4);
             glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, show, 0);
             glBindFramebuffer(GL_READ_FRAMEBUFFER, xfbo);

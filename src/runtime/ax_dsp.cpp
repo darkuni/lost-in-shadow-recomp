@@ -172,7 +172,8 @@ static void output(uint16_t volume, uint32_t lr) {
     int16_t out[N * 2];
     for (int i = 0; i < N; i++) { out[2 * i] = (int16_t)R16(lr + 4 * i); out[2 * i + 1] = (int16_t)R16(lr + 4 * i + 2); }
     void audio_out(const int16_t* lr, int frames);
-    audio_out(out, N);
+    extern bool g_ai_wrapped;
+    if (!g_ai_wrapped) audio_out(out, N);   // else hle_audio.cpp outputs the AI buffer after the wrapping callback
 }
 
 void ax_process(uint32_t list, uint32_t words) {
