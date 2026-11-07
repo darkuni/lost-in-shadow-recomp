@@ -608,8 +608,11 @@ static void bind_texmap(int m) {
             static long paddump = getenv("PADDUMP") ? atol(getenv("PADDUMP")) : -1;   // debug: save the composed texture
             if ((long)g_frame == paddump) {
                 std::vector<uint8_t> px((size_t)w * RS * h * RS * 4);
-                glBindTexture(GL_TEXTURE_2D, e.pad);
-                glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, px.data());
+                glBindFramebuffer(GL_READ_FRAMEBUFFER, dfbo);
+                glFramebufferTexture2D(GL_READ_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, e.pad, 0);
+                glPixelStorei(GL_PACK_ALIGNMENT, 1);
+                glReadPixels(0, 0, w * RS, h * RS, GL_RGBA, GL_UNSIGNED_BYTE, px.data());
+                glBindFramebuffer(GL_READ_FRAMEBUFFER, prev_read);
                 char path[64]; snprintf(path, sizeof path, "pad_%08X_%dx%d.ppm", addr, w * RS, h * RS);
                 FILE* f = fopen(path, "wb");
                 if (f) { fprintf(f, "P6 %d %d 255\n", w * RS, h * RS); for (size_t i = 0; i < px.size(); i += 4) fwrite(&px[i], 1, 3, f); fclose(f); }
