@@ -263,7 +263,9 @@ static void setup_vertex_pipeline(int vat) {
     DrawSetup& d = g_ds;
     const uint32_t lo = g_gx.cp[0x50], hi = g_gx.cp[0x60];
     const uint32_t A = g_gx.cp[0x70 + vat], B = g_gx.cp[0x80 + vat], C = g_gx.cp[0x90 + vat];
-    uint32_t mA = g_gx.cp[0x30], mB = g_gx.cp[0x40];
+    // default matrix indices: the transform unit's own copy (XF 0x1018/0x1019), not the CP one; they
+    // normally match, but Lost in Shadow points texgen 1 at PNMTX0 with an XF write only (light map)
+    uint32_t mA = g_gx.xf_reg[0x18], mB = g_gx.xf_reg[0x19];
     d.def_pn = mA & 63;
     for (int i = 0; i < 4; i++) d.def_tex[i] = (mA >> (6 + 6 * i)) & 63;
     for (int i = 0; i < 4; i++) d.def_tex[4 + i] = (mB >> (6 * i)) & 63;
@@ -1263,6 +1265,10 @@ void gx_draw(uint8_t prim, int vat, uint32_t count, const uint8_t* data, int vsi
           fprintf(g_log, "cp30 %08X xf18 %08X pos %.2f %.2f %.2f pn %d base %08X stride %u mtx %.2f %.2f %.2f %.2f / %.2f %.2f %.2f %.2f | ", g_gx.cp[0x30], g_gx.xf_reg[0x18], rv.pos[0], rv.pos[1], rv.pos[2], rv.pnidx, g_gx.cp[0xA0], g_gx.cp[0xB0],
                   xff(rv.pnidx*4), xff(rv.pnidx*4+1), xff(rv.pnidx*4+2), xff(rv.pnidx*4+3), xff(rv.pnidx*4+4), xff(rv.pnidx*4+5), xff(rv.pnidx*4+6), xff(rv.pnidx*4+7)); }
         for (int st = 0; st < ns; st++) fprintf(g_log, "s%d c%06X a%06X o%06X ", st, g_gx.bp[0xC0 + 2 * st], g_gx.bp[0xC1 + 2 * st], g_gx.bp[0x28 + st / 2]);
+        for (int m = 1; m < 4; m++) fprintf(g_log, "t%d %08X/%d ", m, (((g_gx.bp[0x94 + m] & 0xFFFFFF) << 5) | 0x80000000u), (g_gx.bp[0x88 + m] >> 20) & 15);
+        for (int tg = 0; tg < (int)(g_gx.xf_reg[0x3F] & 15); tg++)
+            fprintf(g_log, "g%d %08X/%08X tc %.3f %.3f %.3f ", tg, g_gx.xf_reg[0x40 + tg], g_gx.xf_reg[0x50 + tg], verts[0].tc[tg][0], verts[0].tc[tg][1], verts[0].tc[tg][2]);
+        fprintf(g_log, "ind %06X/%06X dual %X ", g_gx.bp[0x10], g_gx.bp[0x27], g_gx.xf_reg[0x12]);
         fprintf(g_log, "| vcd %08X %08X vatA %08X vsz %d raw:", g_gx.cp[0x50], g_gx.cp[0x60], g_gx.cp[0x70 + vat], vsize);
         for (int b = 0; b < vsize && b < 32; b++) fprintf(g_log, "%02X", data[b]);
         fprintf(g_log, " ncol %u chan %08X %08X mat %08X amb %08X ", g_gx.xf_reg[9], g_gx.xf_reg[0x0E], g_gx.xf_reg[0x10], g_gx.xf_reg[0x0C], g_gx.xf_reg[0x0A]);
