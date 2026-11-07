@@ -8,11 +8,13 @@ Linux (SteamOS / Steam Deck) with a small runtime that replaces the Wii hardware
 
 ## Status
 
-Work in progress. Boots through the safety and Nunchuk screens, the title screen, file select and the opening movie (Linux headless
-tests) into the first stage. Controls: a gamepad or WASD drives the Nunchuk stick, the mouse (or the right stick) is the Wii Remote pointer,
+Playable. Boots through the safety and Nunchuk screens, the title, file select and the opening movie into the game; the
+first stage (Well Yard) plays with its shadow world, movie and cut-scene audio. Not every stage has been checked. Controls: a gamepad or WASD drives the Nunchuk stick, the mouse (or the right stick) is the Wii Remote pointer,
 and a real Wii Remote paired over Bluetooth works for buttons, motion and pointer.
 
 ## Download
+
+Releases: https://github.com/darkuni/lost-in-shadow-recomp/releases (Windows zip and Linux tar.gz).
 
 Test builds: GitHub Actions (Windows zip and Linux tar.gz). Unpack, put your disc image in the same folder and run
 `lostinshadow.exe` (Windows) or `./lostinshadow` (Linux): the first start builds the `game` folder from it. The

@@ -60,6 +60,8 @@ Same recompiler and runtime as Zack & Wiki, TARGET: Terror and Geometry Wars: Ga
   that calls AX's and then mixes its audio into the buffer AX just queued (AIGetDMAStartAddr). AIInitDMA now
   sets the DSP registers AIGetDMAStartAddr reads, and while a wrapper is installed the host output is that AI
   buffer after the callback instead of the AX mixer output (before: movies and cut scenes had no sound).
+- Renderer: destination alpha (BP 0x42 bit 8): the EFB gets the constant alpha instead of the TEV alpha (blending still
+  uses the TEV one). The bloom pass masks by EFB alpha; without it the whole scene bled and washed out.
 - Renderer: the default position / texture matrix indices come from the XF copy (0x1018/0x1019), not the CP
   one (0x30/0x40); the game sets them through XF only (missing wall shadow and boy silhouette).
 
