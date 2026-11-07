@@ -605,6 +605,15 @@ static void bind_texmap(int m) {
             glBindFramebuffer(GL_READ_FRAMEBUFFER, prev_read);
             glEnable(GL_SCISSOR_TEST);   // only reached from draw setup, where the scissor is on
             e.pgen = gsum;
+            static long paddump = getenv("PADDUMP") ? atol(getenv("PADDUMP")) : -1;   // debug: save the composed texture
+            if ((long)g_frame == paddump) {
+                std::vector<uint8_t> px((size_t)w * RS * h * RS * 4);
+                glBindTexture(GL_TEXTURE_2D, e.pad);
+                glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, px.data());
+                char path[64]; snprintf(path, sizeof path, "pad_%08X_%dx%d.ppm", addr, w * RS, h * RS);
+                FILE* f = fopen(path, "wb");
+                if (f) { fprintf(f, "P6 %d %d 255\n", w * RS, h * RS); for (size_t i = 0; i < px.size(); i += 4) fwrite(&px[i], 1, 3, f); fclose(f); }
+            }
         }
         tex = e.pad;
     } else {
@@ -1001,6 +1010,37 @@ static void efb_copy_impl(uint32_t val) {
         } else {
             copy_convert(e.tex, sx, sy, w, h, tw, th, cfmt, inten, zcopy);
         }
+#ifdef G_EFB_COPY_TO_RAM
+        // Also store the copy in RAM in the GX texture layout, for games whose CPU reads it
+        // (RGB565 and RGBA8 copies; G_EFB_COPY_TO_RAM in game.h, EFB2RAM=0 turns it off)
+        static const bool to_ram = !getenv("EFB2RAM") || atoi(getenv("EFB2RAM")) != 0;
+        if (to_ram && !zcopy && !inten && (cfmt == 4 || cfmt == 6) && (tw & 3) == 0 && (th & 3) == 0 &&
+            dst >= 0x80000000u && dst + (uint32_t)tw * th * (cfmt == 6 ? 4 : 2) <= 0x93600000u) {
+            static GLuint rbfo = 0;
+            if (!rbfo) glGenFramebuffers(1, &rbfo);
+            std::vector<uint8_t> px((size_t)tw * RS * th * RS * 4);
+            glBindFramebuffer(GL_READ_FRAMEBUFFER, rbfo);
+            glFramebufferTexture2D(GL_READ_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, e.tex, 0);
+            glPixelStorei(GL_PACK_ALIGNMENT, 1);
+            glReadPixels(0, 0, tw * RS, th * RS, GL_RGBA, GL_UNSIGNED_BYTE, px.data());
+            glBindFramebuffer(GL_FRAMEBUFFER, g_fbo);
+            uint8_t* out = MEM + (dst & 0x9FFFFFFFu);
+            int bw = tw / 4;
+            for (int y = 0; y < th; y++)
+                for (int x = 0; x < tw; x++) {
+                    const uint8_t* p = &px[(((size_t)y * RS) * tw * RS + (size_t)x * RS) * 4];
+                    int blk = (y / 4) * bw + x / 4, i = (y & 3) * 4 + (x & 3);
+                    if (cfmt == 4) {
+                        uint16_t v = (uint16_t)((p[0] >> 3) << 11 | (p[1] >> 2) << 5 | (p[2] >> 3));
+                        uint8_t* o = out + blk * 32 + i * 2;
+                        o[0] = v >> 8; o[1] = v & 255;
+                    } else {
+                        uint8_t* o = out + blk * 64 + i * 2;
+                        o[0] = p[3]; o[1] = p[0]; o[32] = p[1]; o[33] = p[2];
+                    }
+                }
+        }
+#endif
         // keep the RAM copy's texture cache entry from shadowing this copy
     }
     if (clear) {

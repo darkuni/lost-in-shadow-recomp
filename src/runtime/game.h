@@ -20,4 +20,4 @@
 #define G_FN_OS_DISABLE_SCHEDULER f_80129050  // interrupt handlers run with the scheduler off (hle_thread.cpp irq_check)
 #define G_FN_OS_ENABLE_SCHEDULER  f_80129090
 #define G_FN_OS_RESCHEDULE        f_801295B0  // __OSReschedule after the handlers
-#define G_IOS_ASYNC_DELAY_US    300u          // async IOS requests (disc reads) complete 0.3 ms later (hle_ios.cpp)
+#define G_IOS_ASYNC_DELAY_US    2000u         // async IOS requests (disc reads) complete 2 ms later (hle_ios.cpp)
