@@ -241,7 +241,10 @@ void mtspr(Ctx* c, int spr, uint32_t v) {
         uint32_t memg = (mem & 0x3FFFFFFFu) | 0x80000000u;
         uint32_t lcg = 0xE0000000u | (lc & 0x0FFFFFFFu);
         static bool dmalog = getenv("LCDMALOG") != nullptr;
-        if (dmalog) { static int n = 0; if (n++ < 3000) fprintf(stderr, "[lcdma] %s mem %08X lc %08X blocks %u pc~lr %08X\n", (v & 0x10) ? "load" : "store", memg, lcg, blocks, c->lr); }
+        static uint32_t rlo = 0, rhi = 0xFFFFFFFFu;
+        static bool rinit = [] { if (const char* e = getenv("LCDMARANGE")) sscanf(e, "%x,%x", &rlo, &rhi); return true; }();
+        (void)rinit;
+        if (dmalog && memg >= rlo && memg < rhi) { static int n = 0; if (n++ < 3000) fprintf(stderr, "[lcdma] %s mem %08X lc %08X blocks %u pc~lr %08X\n", (v & 0x10) ? "load" : "store", memg, lcg, blocks, c->lr); }
         if (v & 0x10) memcpy(MEM + xl(lcg), MEM + xl(memg), blocks * 32);   // load: RAM -> LC
         else memcpy(MEM + xl(memg), MEM + xl(lcg), blocks * 32);            // store: LC -> RAM
         g_cpu_spr[923] = v & ~2u;

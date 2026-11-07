@@ -569,7 +569,22 @@ static void bind_texmap(int m) {
             glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, w * RS, h * RS, 0, GL_RGBA, GL_UNSIGNED_BYTE, zero.data());
             e.pw = w; e.ph = h; e.prs = RS; e.pgen = ~0ull;
         }
-        if (e.pgen != e.gen) {
+        // Copies that land further into the same texture fill the rest of it (Lost in Shadow builds its
+        // 640x640 light map from two 640x320 copies, EFB height being the limit).
+        static const int bpp_x2[16] = {1, 2, 2, 4, 4, 4, 8, 0, 1, 2, 4, 0, 0, 0, 1, 0};   // bytes per pixel x2
+        uint32_t row_bytes = (uint32_t)w * bpp_x2[fmt] / 2, total = row_bytes * (uint32_t)h;
+        std::vector<std::pair<int, CopyEntry*>> parts;
+        uint64_t gsum = e.gen;
+        if (row_bytes && (h > e.h)) {
+            for (auto& kv : g_copies) {
+                if (kv.first <= addr || kv.first >= addr + total || !kv.second.tex || kv.second.w != w) continue;
+                int y = (int)((kv.first - addr) / row_bytes);
+                if (y + kv.second.h > h) continue;
+                parts.push_back({y, &kv.second});
+                gsum = gsum * 31 + kv.second.gen + (uint64_t)y;
+            }
+        }
+        if (e.pgen != gsum) {
             static GLuint rfbo = 0, dfbo = 0;
             if (!rfbo) { glGenFramebuffers(1, &rfbo); glGenFramebuffers(1, &dfbo); }
             GLint prev_draw = 0, prev_read = 0;
@@ -581,10 +596,15 @@ static void bind_texmap(int m) {
             glBindFramebuffer(GL_DRAW_FRAMEBUFFER, dfbo);
             glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, e.pad, 0);
             glBlitFramebuffer(0, 0, e.w * RS, e.h * RS, 0, 0, e.w * RS, e.h * RS, GL_COLOR_BUFFER_BIT, GL_NEAREST);
+            for (auto& p : parts) {
+                glFramebufferTexture2D(GL_READ_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, p.second->tex, 0);
+                glBlitFramebuffer(0, 0, p.second->w * RS, p.second->h * RS, 0, p.first * RS, p.second->w * RS, (p.first + p.second->h) * RS,
+                                  GL_COLOR_BUFFER_BIT, GL_NEAREST);
+            }
             glBindFramebuffer(GL_DRAW_FRAMEBUFFER, prev_draw);
             glBindFramebuffer(GL_READ_FRAMEBUFFER, prev_read);
             glEnable(GL_SCISSOR_TEST);   // only reached from draw setup, where the scissor is on
-            e.pgen = e.gen;
+            e.pgen = gsum;
         }
         tex = e.pad;
     } else {
